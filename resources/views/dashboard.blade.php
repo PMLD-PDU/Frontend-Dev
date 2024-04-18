@@ -19,24 +19,57 @@
     <title>Dashboard | {{ $rigName }} - {{ $companyName }}</title>
   </head>
   <body>
-    <nav class="flex flex-row justify-between items-center bg-orange-300">
-      <div class="">
+    <nav class="flex flex-row items-center bg-orange-300 justify-between">
+      <div class="flex flex-row items-center">
+        <div class="m-4">
+          text
+        </div>
+        <div class="p stars-8">
+          <ul class="flex flex-row space-x-4">
+            <li><p class="text-white px-2 min-w-24">Company Name</p></li>
+            <li><p class="text-white px-2 min-w-24">Well Name</p></li>
+            <li><p class="text-white px-2 min-w-24">Rig Name</p></li>
+            <li><p class="text-white px-2 min-w-24">Rig Activity</p></li>
+            <li><p class="text-white px-2 min-w-24">DATE</p></li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-gray-500 m-4 flex items-end">
         text
       </div>
-      
-      <ul class="flex flex-row space-x-4">
-        <li><p class="text-white">Home</p></li>
-        <li><p class="text-white">About</p></li>
-        <li><p class="text-white">Services</p></li>
-      </ul>
-
-      <div class="bg-gray-500">
-        text
-      </div>
-
     </nav>
-    <main>
+    <main class="flex flex-row p-16">
+      <div class="flex flex-col">
+        {{-- bit depth --}}
+        <div>
 
+        </div>
+        {{-- Tank Volume --}}
+        <div class="flex flex-col">
+
+        </div>
+        {{-- SPM --}}
+        <div class="flex flex-col">
+
+        </div>
+      </div>
+      <div class="flex flex-col">
+        <h2>Realtime Monitoring</h2>
+        {{-- Status Highlight --}}
+        <div>
+
+        </div>
+        {{-- graph --}}
+        <div>
+
+        </div>
+      </div>
+      <div class="flex flex-col">
+        <h2>Report</h2>
+        <div>
+
+        </div>
+      </div>
     </main>
   </body>
 </html>
