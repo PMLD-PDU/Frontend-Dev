@@ -14,7 +14,7 @@
 
     <!-- Internal CSS and JS-->
     {{-- <link href="{{ mix('css/app.css') }}" rel="stylesheet"> --}}
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @vite('resources/css/app.css')
 
     <title>Dashboard | {{ $rigName }} - {{ $companyName }}</title>
   </head>
