@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,5 @@ Route::get('/login', function () {
 Route::get('/mainscreen', function () {
     return view('mainscreen');
 });
+
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
