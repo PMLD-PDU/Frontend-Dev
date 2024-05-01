@@ -19,10 +19,12 @@
     <title>Dashboard | {{ $rigName }} - {{ $companyName }}</title>
   </head>
   <body>
-    <nav class="flex flex-row items-center bg-orange-300 justify-between">
+    <nav class="flex flex-row items-center bg-orange-300 justify-between max-h-24">
       <div class="flex flex-row items-center">
-        <div class="m-4">
-          text
+        <div class="flex items-center bg-pdu-orange rounded-r-2xl">
+          <div class="m-4">
+            text text text
+          </div>
         </div>
         <div class="p stars-8">
           <ul class="flex flex-row space-x-4">
@@ -38,35 +40,41 @@
         text
       </div>
     </nav>
-    <main class="flex flex-row p-16">
-      <div class="flex flex-col">
+    <main class="flex flex-row p-16 justify-between">
+      <div class="flex flex-col w-1.6/12 space-y-9">
         {{-- bit depth --}}
-        <div>
-
+        <div class="flex flex-row bg-slate-300 w-full h-28">
+          <div></div>
+          <div></div>
         </div>
         {{-- Tank Volume --}}
-        <div class="flex flex-col">
-
+        <div class="flex flex-col w-full h-fit space-y-6">
+          <h2 class="text-pdu-orange text-xl font-sans font-extrabold">Tank Volume</h2>
+          <div class="flex flex-col w-full bg-slate-300 rounded-xl shadow-md shadow-black/25 h-72">
+          </div>
         </div>
         {{-- SPM --}}
-        <div class="flex flex-col">
-
+        <div class="flex flex-col w-full h-fit space-y-6">
+          <h2 class="text-pdu-orange text-xl font-sans font-extrabold">SPM</h2>
+          <div class="flex flex-col w-full bg-slate-300 rounded-xl shadow-md shadow-black/25 h-72">
+          </div>
         </div>
       </div>
-      <div class="flex flex-col">
-        <h2>Realtime Monitoring</h2>
+
+      <div class="flex flex-col w-7.5/12 space-y-7">
+        <h2 class="text-pdu-orange text-2xl font-sans font-extrabold">Realtime Monitoring</h2>
         {{-- Status Highlight --}}
-        <div>
+        <div class="w-full bg-slate-300 rounded-xl shadow-md shadow-black/25 h-96">
 
         </div>
         {{-- graph --}}
-        <div>
+        <div class="w-full bg-slate-300 rounded-xl shadow-md shadow-black/25 h-96">
 
         </div>
       </div>
-      <div class="flex flex-col">
-        <h2>Report</h2>
-        <div>
+      <div class="flex flex-col w-2/12 space-y-6">
+        <h2 class="text-pdu-orange text-2xl font-sans font-extrabold">Report</h2>
+        <div class="w-full bg-slate-300 rounded-xl shadow-md shadow-black/25 h-72">
 
         </div>
       </div>
