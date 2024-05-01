@@ -19,6 +19,7 @@
     <title>Dashboard | {{ $rigName }} - {{ $companyName }}</title>
   </head>
   <body>
+    {{-- NAVBAR --}}
     <nav class="flex flex-row items-center bg-orange-300 justify-between max-h-24">
       <div class="flex flex-row items-center">
         <div class="flex items-center bg-pdu-orange rounded-r-2xl">
@@ -41,6 +42,7 @@
       </div>
     </nav>
     <main class="flex flex-row p-16 justify-between">
+    {{-- DASHBOARD SECTION KIRI --}}
       <div class="flex flex-col w-1.6/12 space-y-9">
         {{-- bit depth --}}
         <div class="flex flex-row bg-slate-300 w-full h-28">
@@ -60,7 +62,7 @@
           </div>
         </div>
       </div>
-
+    {{-- DASHBOARD SECTION TENGAH --}}
       <div class="flex flex-col w-7.5/12 space-y-7">
         <h2 class="text-pdu-orange text-2xl font-sans font-extrabold">Realtime Monitoring</h2>
         {{-- Status Highlight --}}
@@ -72,6 +74,7 @@
 
         </div>
       </div>
+    {{-- REPORT SECTION --}}
       <div class="flex flex-col w-2/12 space-y-6">
         <h2 class="text-pdu-orange text-2xl font-sans font-extrabold">Report</h2>
         <div class="w-full bg-slate-300 rounded-xl shadow-md shadow-black/25 h-72">
