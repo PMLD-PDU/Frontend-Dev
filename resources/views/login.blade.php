@@ -44,6 +44,7 @@
 
     .form-control{
         background-color: #FCEBE7;
+        /* border-radius:1rem; */
     }
 
     .btn-color{
@@ -51,9 +52,26 @@
         color: #fff;
     }
 
-    /* .btn:hover{
-        color: #FCEBE7;
+    .pdu-form{
+        background: #fff;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        width: 50%;
+        border-radius: 10%;
+    }
+
+    /* .pdu-form .form-control{
+        border-radius:1rem;
     } */
+
+    .pdu-image{
+        text-align: center;
+    }
+    
+    .pdu-image img{
+        width: 11%;
+        margin-top: -4%;
+    }
     </style>
   </head>
   <body>
@@ -72,50 +90,40 @@
     
     </div> --}}
 
-    <div class="container">
-        <div class="row">
-          <div class="col-md-6 offset-md-3">
-            <div class="card my-5 shadow p-3">
-    
-              <form class="card-body p-lg-5">
-    
-                <div class="text-center">
-                  <img src="img_pdu.jpg" class="img-fluid profile-image-pic img-thumbnail rounded-circle mb-3 shadow p-1"
-                    width="80px" alt="profile">
-                </div>
-    
-                <div class="mb-1 login-title">
-                    <i class="fa fa-sign-in" aria-hidden="true"></i>
-                    Login
-                </div>
+    <div class="container pdu-form">
 
-                <div class="mb-1 login-content">
-                    Username
-                </div>
-
-                <div class="mb-2">
-                  <input type="text" class="form-control" id="Username" aria-describedby="emailHelp"
-                    placeholder="Your name">
-                </div>
-
-                <div class="mb-1 login-content">
-                    Password
-                </div>
-
-                <div class="mb-3">
-                  <input type="password" class="form-control" id="password" 
-                  placeholder="Your password">
-                </div>
-
-                <div class="text-center">
-                    <a href="/mainscreen" class="btn btn-color px-5 mb-5 w-100">Login
-                    </a>
-                </div>
-              </form>
-            </div>
-    
-          </div>
+        <div class="pdu-image">
+            <img src="img_pdu.jpg" class="img-fluid profile-image-pic img-thumbnail rounded-circle shadow p-1"/>
         </div>
+        <form class="p-lg-5">
+            <div class="mb-1 login-title">
+                <i class="fa fa-sign-in" aria-hidden="true"></i>
+                Login
+            </div>
+
+            <div class="mb-1 login-content">
+                Username
+            </div>
+
+            <div class="mb-2">
+              <input type="text" class="form-control" id="Username" aria-describedby="emailHelp"
+                placeholder="Your name">
+            </div>
+
+            <div class="mb-1 login-content">
+                Password
+            </div>
+
+            <div class="mb-3">
+              <input type="password" class="form-control" id="password" 
+              placeholder="Your password">
+            </div>
+
+            <div class="text-center">
+                <a href="/mainscreen" class="btn btn-color px-5 mb-5 w-100">Login
+                </a>
+            </div>
+        </form>
       </div>
 
 

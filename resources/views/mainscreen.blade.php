@@ -51,9 +51,26 @@
         color: #fff;
     }
 
-    /* .btn:hover{
-        color: #FCEBE7;
+    .pdu-form{
+        background: #fff;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        width: 50%;
+        border-radius: 10%;
+    }
+
+    /* .pdu-form .form-control{
+        border-radius:1rem;
     } */
+
+    .pdu-image{
+        text-align: center;
+    }
+    
+    .pdu-image img{
+        width: 11%;
+        margin-top: -4%;
+    }
     </style>
   </head>
   <body>
@@ -72,52 +89,43 @@
     
     </div> --}}
 
-    <div class="container">
-        <div class="row">
-          <div class="col-md-6 offset-md-3">
-            <div class="card my-5 shadow p-3">
-    
-              <form class="card-body p-lg-5">
-    
-                <div class="text-center">
-                  <img src="img_pdu.jpg" class="img-fluid profile-image-pic img-thumbnail rounded-circle mb-3 shadow p-1"
-                    width="80px" alt="profile">
-                </div>
-    
-                <div class="mb-1 login-title">
-                    <i class="fa fa-desktop"></i>
-                    Real Time Monitoring
-                </div>
+    <div class="container pdu-form">
 
-                <div class="form-group row my-2">
-                  <label for="staticEmail" class="col-sm-3 col-form-label">Company</label>
-                  <div class="form-group col-sm-9">
-                    <select id="inputState" class="form-control">
-                      <option selected>- Select -</option>
-                      <option>...</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="form-group row my-2">
-                  <label for="inputPassword" class="col-sm-3 col-form-label">Well</label>
-                  <div class="form-group col-sm-9">
-                    <select id="inputState" class="form-control">
-                      <option selected>- Select -</option>
-                      <option>...</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end my-3">
-                  <button class="btn btn-color" type="button">View Studio</button>
-                </div>
-
-              </form>
-            </div>
+      <div class="pdu-image">
+        <img src="img_pdu.jpg" class="img-fluid profile-image-pic img-thumbnail rounded-circle shadow p-1"/>
+      </div>
+      <form class="card-body p-lg-5">
     
+        <div class="mb-1 login-title">
+            <i class="fa fa-desktop"></i>
+            Real Time Monitoring
+        </div>
+
+        <div class="form-group row my-2">
+          <label for="staticEmail" class="col-sm-3 col-form-label">Company</label>
+          <div class="form-group col-sm-9">
+            <select id="inputState" class="form-control">
+              <option selected>- Select -</option>
+              <option>...</option>
+            </select>
           </div>
         </div>
+
+        <div class="form-group row my-2">
+          <label for="inputPassword" class="col-sm-3 col-form-label">Well</label>
+          <div class="form-group col-sm-9">
+            <select id="inputState" class="form-control">
+              <option selected>- Select -</option>
+              <option>...</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end my-3">
+          <button class="btn btn-color" type="button">View Studio</button>
+        </div>
+
+      </form>
       </div>
 
 
