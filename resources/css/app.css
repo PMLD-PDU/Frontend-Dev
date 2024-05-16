@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.text-orange {
+    color: #E75C33;
+  }
+  
+.bg-orange-muda{
+  background-color: #FFD7CB;
+}
+
+.bg-abu{
+  background-color: #E5B6A9;
+}
