@@ -14,17 +14,24 @@ class DashboardController extends Controller
 
     public function dashboard()
     {
-        $placeholderApiUrl = 'https://example.com/api/company';
+        $placeholderApiUrl = 'http://example.com/api/company'; // Change to HTTP
 
-        // Fetch API
-        $response = Http::get($placeholderApiUrl);
-        $companyInfo = $response->json();
+        try {
+            // Fetch API without verifying SSL certificate
+            $response = Http::withoutVerifying()->get($placeholderApiUrl);
+            $companyInfo = $response->json();
 
-        // Extract rig name from company info
-        $rigName = 'Unknown Rig';; // edit nanti sesuai isi API
-        $companyName = $companyInfo['company_name'] ?? 'Unknown company'; // edit nanti sesuai isi API
+            // Extract rig name from company info
+            $rigName = 'Unknown Rig';
+            $companyName = $companyInfo['company_name'] ?? 'Unknown company';
 
-        return view('dashboard', compact('rigName', 'companyName'));
+            return view('dashboard', compact('rigName', 'companyName'));
+        } catch (\Exception $e) {
+            // Handle exception
+            \Log::error('Error fetching API data: ' . $e->getMessage());
+            return view('error');
+        }
     }
 }
+
 

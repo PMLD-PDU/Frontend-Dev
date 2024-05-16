@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <!-- Internal CSS and JS-->
     {{-- <link href="{{ mix('css/app.css') }}" rel="stylesheet"> --}}
@@ -77,20 +77,87 @@
     {{-- DASHBOARD SECTION KIRI --}}
       <div class="flex flex-col w-1.6/12 space-y-9">
         {{-- bit depth --}}
-        <div class="flex flex-row bg-slate-300 w-full h-28">
-          <div></div>
-          <div></div>
+        <div class="flex flex-row bg-white w-full h-28">
+          <div class="flex flex-row">
+            <img class="px-3 py-2" src="img_logo.png" alt="">
+            <div class="flex flex-col py-2 text-2xl justify-center">
+              <p class="font-medium">Bit Depth</p>
+              <p class="text-pdu-orange font-bold">66.93 bbl</p>
+            </div> 
+            </div>
         </div>
         {{-- Tank Volume --}}
         <div class="flex flex-col w-full h-fit space-y-6">
           <h2 class="text-pdu-orange text-xl font-sans font-extrabold">Tank Volume</h2>
-          <div class="flex flex-col w-full bg-slate-300 rounded-xl shadow-md shadow-black/25 h-72">
+          <div class="flex flex-col w-full bg-white rounded-xl shadow-md shadow-black/25 divide-y">
+            <div class="flex flex-row">
+            <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
+            <div class="flex flex-col py-2 align-middle font-bold text-base">
+              <p>Tank Vol. 1</p>
+              <p class="text-pdu-orange">390.38 bbl</p>
+            </div> 
+            </div>
+
+            <div class="flex flex-row">
+            <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
+            <div class="flex flex-col py-2 align-middle font-bold text-base">
+              <p>Tank Vol. 2</p>
+              <p class="text-pdu-orange">66.93 bbl</p>
+            </div> 
+            </div>
+
+            <div class="flex flex-row">
+            <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
+            <div class="flex flex-col py-2 align-middle font-bold text-base">
+              <p>Tank Vol. 3</p>
+              <p class="text-pdu-orange">26.05 bbl</p>
+            </div> 
+            </div>
+
+            <div class="flex flex-row">
+            <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
+            <div class="flex flex-col py-2 align-middle font-bold text-base">
+              <p>Tank Vol. 4</p>
+              <p class="text-pdu-orange">165.73 bbl</p>
+            </div> 
+            </div>
           </div>
         </div>
         {{-- SPM --}}
         <div class="flex flex-col w-full h-fit space-y-6">
           <h2 class="text-pdu-orange text-xl font-sans font-extrabold">SPM</h2>
-          <div class="flex flex-col w-full bg-slate-300 rounded-xl shadow-md shadow-black/25 h-72">
+          <div class="flex flex-col w-full bg-white rounded-xl shadow-md shadow-black/25 divide-y">
+          <div class="flex flex-row">
+            <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
+            <div class="flex flex-col py-2 align-middle font-bold text-base">
+              <p>SPM 1</p>
+              <p class="text-pdu-orange">0</p>
+            </div> 
+            </div>
+
+            <div class="flex flex-row">
+            <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
+            <div class="flex flex-col py-2 align-middle font-bold text-base">
+              <p>SPM 2</p>
+              <p class="text-pdu-orange">0</p>
+            </div> 
+            </div>
+
+            <div class="flex flex-row">
+            <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
+            <div class="flex flex-col py-2 align-middle font-bold text-base">
+              <p>SPM 3</p>
+              <p class="text-pdu-orange">0</p>
+            </div> 
+            </div>
+
+            <div class="flex flex-row">
+            <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
+            <div class="flex flex-col py-2 align-middle font-bold text-base">
+              <p>SPM 4</p>
+              <p class="text-pdu-orange">0</p>
+            </div> 
+            </div>
           </div>
         </div>
       </div>
