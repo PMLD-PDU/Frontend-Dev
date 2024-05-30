@@ -11,13 +11,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+      .charts-container {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          transform: rotate(90deg);
+          width: 100%;
+          height: 900px;
+      }
+
+      .chart-container {
+          flex: 1;
+          height: 100%;
+          width: 100%;
+      }
+  </style>
 
     <!-- Internal CSS and JS-->
     {{-- <link href="{{ mix('css/app.css') }}" rel="stylesheet"> --}}
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 
-    <title>Dashboard | {{ $rigName }} - {{ $companyName }}</title>
+    {{-- <title>Dashboard | {{ $rigName }} - {{ $companyName }}</title> --}}
   </head>
   <body>
     {{-- NAVBAR --}}
@@ -482,6 +501,91 @@
         {{-- graph --}}
         <div class="w-full bg-slate-300 rounded-xl shadow-md shadow-black/25 h-96">
 
+        <div class="charts-container">
+        <div class="chart-container">
+            <canvas id="chart1"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="chart2"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="chart3"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="chart4"></canvas>
+        </div>
+    </div>
+
+
+    <!-- <script>
+        // Chart 1
+        const ctx1 = document.getElementById('chart1').getContext('2d');
+        const chart1 = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: 'Data 1',
+                    data: [10, 20, 30, 40, 50, 60],
+                    borderColor: 'red',
+                    backgroundColor: 'transparent'
+                }]
+            }
+        });
+
+        // Chart 2
+        const ctx2 = document.getElementById('chart2').getContext('2d');
+        const chart2 = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: 'Data 2',
+                    data: [50, 60, 70, 80, 90, 100],
+                    backgroundColor: 'blue'
+                }]
+            }
+        });
+
+        // Chart 3
+        const ctx3 = document.getElementById('chart3').getContext('2d');
+        const chart3 = new Chart(ctx3, {
+            type: 'line',
+            data: {
+                labels: ['A', 'B', 'C', 'D', 'E'],
+                datasets: [{
+                    label: 'Data 3',
+                    data: [10, 20, 30, 40, 50],
+                    backgroundColor: ['red', 'blue', 'green', 'yellow', 'purple']
+                }]
+            }
+        });
+
+        // Chart 4
+        const ctx4 = document.getElementById('chart4').getContext('2d');
+        const chart4 = new Chart(ctx4, {
+            type: 'line',
+            data: {
+                labels: ['A', 'B', 'C', 'D', 'E'],
+                datasets: [{
+                    label: 'Data 4',
+                    data: [20, 30, 40, 50, 60],
+                    backgroundColor: ['red', 'blue', 'green', 'yellow', 'purple']
+                }]
+            }
+        });
+    </script> -->
+
+    <div class="container px-4 mx-auto">
+
+      <div class="p-6 m-20 bg-white rounded shadow">
+          {!! $chart->container() !!}
+      </div>
+
+    </div>
+
+    
+
         </div>
       </div>
 
@@ -489,6 +593,52 @@
       <div class="flex flex-col w-2/12 space-y-6">
         <h2 class="text-pdu-orange text-2xl font-sans font-extrabold">Report</h2>
         <div class="w-full bg-slate-300 rounded-xl shadow-md shadow-black/25 h-72">
+
+        <div class="flex flex-col w-full h-fit space-y-6">
+    
+    <div class="flex flex-col w-full bg-white rounded-xl shadow-md shadow-black/25 divide-y">     
+      
+    <div class="flex flex-row bg-red-500 rounded-t-xl">
+    <i class="fa-solid fa-exclamation-triangle fa-lg p-2.5 text-white content-center"></i>
+        <div class="flex flex-col py-2 align-middle font-bold text-xs text-white">
+          <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
+          <p class="text-pdu-white">2024-03-19 15:27:16</p>
+        </div> 
+        </div>
+
+      <div class="flex flex-row">
+        <i class="fa-solid fa-circle fa-2xs p-3 text-pdu-orange content-center"></i>
+        <div class="flex flex-col py-2 align-middle font-bold text-xs">
+          <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
+          <p class="text-pdu-orange">2024-03-19 15:27:16</p>
+        </div> 
+        </div>
+
+        <div class="flex flex-row">
+        <i class="fa-solid fa-circle fa-2xs p-3 text-pdu-orange content-center"></i>
+        <div class="flex flex-col py-2 align-middle font-bold text-xs">
+          <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
+          <p class="text-pdu-orange">2024-03-19 15:27:16</p>
+        </div> 
+        </div>
+
+        <div class="flex flex-row">
+        <i class="fa-solid fa-circle fa-2xs p-3 text-pdu-orange content-center"></i>
+        <div class="flex flex-col py-2 align-middle font-bold text-xs">
+          <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
+          <p class="text-pdu-orange">2024-03-19 15:27:16</p>
+        </div> 
+        </div>
+
+        <div class="flex flex-row">
+        <i class="fa-solid fa-circle fa-2xs p-3 text-pdu-orange content-center"></i>
+        <div class="flex flex-col py-2 align-middle font-bold text-xs">
+          <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
+          <p class="text-pdu-orange">2024-03-19 15:27:16</p>
+        </div> 
+        </div>
+      </div>
+    </div>
 
         </div>
       </div>
@@ -551,6 +701,8 @@
         }
     });
   </script>
+  <script src="{{ $chart->cdn() }}"></script>
+  {{ $chart->script() }}
 
   </body>
 </html>

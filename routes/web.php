@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +27,5 @@ Route::get('/mainscreen', function () {
     return view('mainscreen');
 });
 
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+// Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
+Route::get('/users', [UserController::class, 'index'])->name('chart1');
