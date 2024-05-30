@@ -22,7 +22,7 @@
     {{-- NAVBAR --}}
     <nav class="flex flex-row items-center bg-orange-muda justify-between max-h-24">
       <div class="flex flex-row items-center">
-        <div class="flex items-center bg-pdu-orange rounded-r-2xl shadow-xl">
+        <div class="flex items-center bg-pdu-orange rounded-r-2xl shadow-xl cursor-pointer">
           <div class="my-3 mx-7 flex items-center">
             <img src="wpf_statistics.svg" alt="Sensor Icon" class="h-6 w-6 mr-4">
             <span class="font-semibold text-white" id="open-sidebar">Sensor <br> Status</span>
@@ -72,17 +72,125 @@
     </nav>
     
     <!-- Sidebar -->
-    <div class="absolute bg-gray-800 text-white w-56 min-h-screen overflow-y-auto transition-transform transform -translate-x-full ease-in-out duration-300"
+    <div class="absolute bg-orange text-white w-1/6 min-h-screen overflow-y-auto transition-transform transform -translate-x-full ease-in-out duration-300"
       id="sidebar">
       <!-- Your Sidebar Content -->
       <div class="p-4">
-          <h1 class="text-2xl font-semibold">Sidebar</h1>
-          <ul class="mt-4">
+          {{-- <h1 class="text-2xl font-semibold">Sidebar</h1> --}}
+          {{-- <ul class="mt-4">
               <li class="mb-2"><a href="#" class="block hover:text-indigo-400">Home</a></li>
               <li class="mb-2"><a href="#" class="block hover:text-indigo-400">About</a></li>
               <li class="mb-2"><a href="#" class="block hover:text-indigo-400">Services</a></li>
               <li class="mb-2"><a href="#" class="block hover:text-indigo-400">Contact</a></li>
-          </ul>
+          </ul> --}}
+          <div class="flex flex-col w-full bg-white rounded-xl shadow-md shadow-black/25 divide-y">
+            <div class="flex flex-row">
+              <div class="flex flex-row py-2 align-middle font-bold text-base">
+                <p class="text-black ms-4">Bit depth</p>
+                <p class="text-pdu-orange ms-1">390.38 m</p>
+              </div> 
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-row py-2 align-middle font-bold text-base">
+                <p class="text-black ms-4">Drill Depth</p>
+                <p class="text-pdu-orange ms-1">390.38 m</p>
+              </div> 
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-row py-2 align-middle font-bold text-base">
+                <p class="text-black ms-4">Tank Act</p>
+                <p class="text-pdu-orange ms-1">390.38 bbl</p>
+              </div> 
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-row py-2 align-middle font-bold text-base">
+                <p class="text-black ms-4">Tank Act</p>
+                <p class="text-pdu-orange ms-1">390.38 bbl</p>
+              </div> 
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-row py-2 align-middle font-bold text-base">
+                <p class="text-black ms-4">Tank Act</p>
+                <p class="text-pdu-orange ms-1">390.38 bbl</p>
+              </div> 
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-row py-2 align-middle font-bold text-base">
+                <p class="text-black ms-4">Tank Act</p>
+                <p class="text-pdu-orange ms-1">390.38 bbl</p>
+              </div> 
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-row py-2 align-middle font-bold text-base">
+                <p class="text-black ms-4">Tank Act</p>
+                <p class="text-pdu-orange ms-1">390.38 bbl</p>
+              </div> 
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-row py-2 align-middle font-bold text-base">
+                <p class="text-black ms-4">Tank Act</p>
+                <p class="text-pdu-orange ms-1">390.38 bbl</p>
+              </div> 
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-row py-2 align-middle font-bold text-base">
+                <p class="text-black ms-4">Tank Act</p>
+                <p class="text-pdu-orange ms-1">390.38 bbl</p>
+              </div> 
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-row py-2 align-middle font-bold text-base">
+                <p class="text-black ms-4">Tank Act</p>
+                <p class="text-pdu-orange ms-1">390.38 bbl</p>
+              </div> 
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-row py-2 align-middle font-bold text-base">
+                <p class="text-black ms-4">Tank Act</p>
+                <p class="text-pdu-orange ms-1">390.38 bbl</p>
+              </div> 
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-row py-2 align-middle font-bold text-base">
+                <p class="text-black ms-4">Tank Act</p>
+                <p class="text-pdu-orange ms-1">390.38 bbl</p>
+              </div> 
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-row py-2 align-middle font-bold text-base">
+                <p class="text-black ms-4">Tank Act</p>
+                <p class="text-pdu-orange ms-1">390.38 bbl</p>
+              </div> 
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-row py-2 align-middle font-bold text-base">
+                <p class="text-black ms-4">Tank Act</p>
+                <p class="text-pdu-orange ms-1">390.38 bbl</p>
+              </div> 
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-row py-2 align-middle font-bold text-base">
+                <p class="text-black ms-4">Tank Act</p>
+                <p class="text-pdu-orange ms-1">390.38 bbl</p>
+              </div> 
+            </div>
+          </div>
+
+
       </div>
     </div>
 
@@ -427,20 +535,20 @@
   </div> --}}
 
   <script>
-      const sidebar = document.getElementById('sidebar');
-  const openSidebarButton = document.getElementById('open-sidebar');
-  
-  openSidebarButton.addEventListener('click', (e) => {
-      e.stopPropagation();
-      sidebar.classList.toggle('-translate-x-full');
-  });
+    const sidebar = document.getElementById('sidebar');
+    const openSidebarButton = document.getElementById('open-sidebar');
+    
+    openSidebarButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        sidebar.classList.toggle('-translate-x-full');
+    });
 
-  // Close the sidebar when clicking outside of it
-  document.addEventListener('click', (e) => {
-      if (!sidebar.contains(e.target) && !openSidebarButton.contains(e.target)) {
-          sidebar.classList.add('-translate-x-full');
-      }
-  });
+    // Close the sidebar when clicking outside of it
+    document.addEventListener('click', (e) => {
+        if (!sidebar.contains(e.target) && !openSidebarButton.contains(e.target)) {
+            sidebar.classList.add('-translate-x-full');
+        }
+    });
   </script>
 
   </body>
