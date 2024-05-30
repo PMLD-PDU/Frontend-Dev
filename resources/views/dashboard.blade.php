@@ -15,6 +15,7 @@
     <!-- Internal CSS and JS-->
     {{-- <link href="{{ mix('css/app.css') }}" rel="stylesheet"> --}}
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 
     <title>Dashboard | {{ $rigName }} - {{ $companyName }}</title>
   </head>
@@ -54,7 +55,7 @@
           </ul>
         </div>    
       </div>
-
+      
       <div class="mx-4 flex items-center justify-between">
         <img src="img_pdu.jpg" alt="Gambar" class="w-12 h-12 rounded-full mr-2">
         <div class="relative">
@@ -203,7 +204,7 @@
             <img class="px-3 py-2" src="img_logo.png" alt="">
             <div class="flex flex-col py-2 text-2xl justify-center">
               <p class="font-medium">Bit Depth</p>
-              <p class="text-pdu-orange font-bold">66.93 bbl</p>
+              <p class="text-pdu-orange font-bold" id="bit_depth">66.93 bbl</p>
             </div> 
             </div>
         </div>
@@ -215,7 +216,7 @@
             <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
             <div class="flex flex-col py-2 align-middle font-bold text-base">
               <p>Tank Vol. 1</p>
-              <p class="text-pdu-orange">390.38 bbl</p>
+              <p class="text-pdu-orange" id="tank_vol_1">390.38 bbl</p>
             </div> 
             </div>
 
@@ -223,7 +224,7 @@
             <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
             <div class="flex flex-col py-2 align-middle font-bold text-base">
               <p>Tank Vol. 2</p>
-              <p class="text-pdu-orange">66.93 bbl</p>
+              <p class="text-pdu-orange" id="tank_vol_2">66.93 bbl</p>
             </div> 
             </div>
 
@@ -231,7 +232,7 @@
             <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
             <div class="flex flex-col py-2 align-middle font-bold text-base">
               <p>Tank Vol. 3</p>
-              <p class="text-pdu-orange">26.05 bbl</p>
+              <p class="text-pdu-orange" id="tank_vol_3">26.05 bbl</p>
             </div> 
             </div>
 
@@ -239,7 +240,7 @@
             <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
             <div class="flex flex-col py-2 align-middle font-bold text-base">
               <p>Tank Vol. 4</p>
-              <p class="text-pdu-orange">165.73 bbl</p>
+              <p class="text-pdu-orange" id="tank_vol_4">165.73 bbl</p>
             </div> 
             </div>
           </div>
@@ -252,7 +253,7 @@
             <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
             <div class="flex flex-col py-2 align-middle font-bold text-base">
               <p>SPM 1</p>
-              <p class="text-pdu-orange">0</p>
+              <p class="text-pdu-orange" id="spm_1">0</p>
             </div> 
             </div>
 
@@ -260,7 +261,7 @@
             <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
             <div class="flex flex-col py-2 align-middle font-bold text-base">
               <p>SPM 2</p>
-              <p class="text-pdu-orange">0</p>
+              <p class="text-pdu-orange" id="spm_2">0</p>
             </div> 
             </div>
 
@@ -268,7 +269,7 @@
             <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
             <div class="flex flex-col py-2 align-middle font-bold text-base">
               <p>SPM 3</p>
-              <p class="text-pdu-orange">0</p>
+              <p class="text-pdu-orange" id="spm_3">0</p>
             </div> 
             </div>
 
@@ -276,7 +277,7 @@
             <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
             <div class="flex flex-col py-2 align-middle font-bold text-base">
               <p>SPM 4</p>
-              <p class="text-pdu-orange">0</p>
+              <p class="text-pdu-orange" id="spm_4">0</p>
             </div> 
             </div>
           </div>
