@@ -74,7 +74,7 @@
           </ul>
         </div>    
       </div>
-      
+
       <div class="mx-4 flex items-center justify-between">
         <img src="img_pdu.jpg" alt="Gambar" class="w-12 h-12 rounded-full mr-2">
         <div class="relative">

@@ -27,5 +27,5 @@ Route::get('/mainscreen', function () {
     return view('mainscreen');
 });
 
-// Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
-Route::get('/users', [UserController::class, 'index'])->name('chart1');
+Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
+//Route::get('/users', [UserController::class, 'index'])->name('chart1');
