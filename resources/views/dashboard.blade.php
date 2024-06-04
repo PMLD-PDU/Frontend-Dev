@@ -31,10 +31,9 @@
       }
   </style>
 
-    <!-- Internal CSS and JS-->
-    {{-- <link href="{{ mix('css/app.css') }}" rel="stylesheet"> --}}
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
+    @vite('resources/js/sidebar.js')
 
     {{-- <title>Dashboard | {{ $rigName }} - {{ $companyName }}</title> --}}
   </head>
@@ -96,13 +95,6 @@
       id="sidebar">
       <!-- Your Sidebar Content -->
       <div class="p-4">
-          {{-- <h1 class="text-2xl font-semibold">Sidebar</h1> --}}
-          {{-- <ul class="mt-4">
-              <li class="mb-2"><a href="#" class="block hover:text-indigo-400">Home</a></li>
-              <li class="mb-2"><a href="#" class="block hover:text-indigo-400">About</a></li>
-              <li class="mb-2"><a href="#" class="block hover:text-indigo-400">Services</a></li>
-              <li class="mb-2"><a href="#" class="block hover:text-indigo-400">Contact</a></li>
-          </ul> --}}
           <div class="flex flex-col w-full bg-white rounded-xl shadow-md shadow-black/25 divide-y">
             <div class="flex flex-row">
               <div class="flex flex-row py-2 align-middle font-bold text-base">
@@ -209,8 +201,6 @@
               </div> 
             </div>
           </div>
-
-
       </div>
     </div>
 
@@ -308,284 +298,215 @@
         <h2 class="text-pdu-orange text-2xl font-sans font-extrabold">Realtime Monitoring</h2>
         
         {{-- Status Highlight --}}
-      <div class="w-full bg-white rounded-xl shadow-md h-auto mt-2 p-4">
-        <div class="grid grid-cols-[auto,1fr,1fr,1fr,1fr] gap-4 h-full">
-          <!-- Kolom Pertama -->
-          <div class="flex items-start">
-            <img src="sensor-icon.svg" alt="Icon" class="inline-block">
-          </div>
-          <!-- Kolom Kedua -->
-          <div class="flex items-start flex-col rounded-lg bg-white border border-gray-300 p-3">
-            <ul role="list" class="divide-y w-full divide-gray-300">
-              <li class="grid grid-cols-[auto,1fr] pb-2 items-center">
-                <div class="flex min-w-0 inline-block items-center">
-                  <svg class="h-4 w-8 flex-initial inline-block">
-                    <circle class="items-center" cx="6" cy="6" r="5" fill="#4700DE"/>
-                  </svg>
-                  <div class="flex-col min-w-0 flex-auto items-center">
-                    <p class="text-base truncate font-bold" style="color: #4700DE;">TORQ</p>
-                    <p class="mt-1 truncate font-bold text-base text-gray-300">
-                      <span id="TORQVal" style="color: #4700DE;">0</span> / <span>30</span>
-                    </p>
+        <div class="w-full bg-white rounded-xl shadow-md h-auto mt-2 p-4">
+          <div class="grid grid-cols-[auto,1fr,1fr,1fr,1fr] gap-4 h-full">
+            <!-- Kolom Pertama -->
+            <div class="flex items-start">
+              <img src="sensor-icon.svg" alt="Icon" class="inline-block">
+            </div>
+            <!-- Kolom Kedua -->
+            <div class="flex items-start flex-col rounded-lg bg-white border border-gray-300 p-3">
+              <ul role="list" class="divide-y w-full divide-gray-300">
+                <li class="grid grid-cols-[auto,1fr] pb-2 items-center">
+                  <div class="flex min-w-0 inline-block items-center">
+                    <svg class="h-4 w-8 flex-initial inline-block">
+                      <circle class="items-center" cx="6" cy="6" r="5" fill="#4700DE"/>
+                    </svg>
+                    <div class="flex-col min-w-0 flex-auto items-center">
+                      <p class="text-base truncate font-bold" style="color: #4700DE;">TORQ</p>
+                      <p class="mt-1 truncate font-bold text-base text-gray-300">
+                        <span id="TORQVal" style="color: #4700DE;">0</span> / <span>30</span>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </li>
-              <li class="grid grid-cols-[auto,1fr] py-2 items-center">
-                <div class="flex min-w-0 inline-block items-center">
-                  <svg class="h-4 w-8 flex-initial inline-block">
-                    <circle class="items-center" cx="6" cy="6" r="5" fill="#60D96C"/>
-                  </svg>
-                  <div class="flex-col min-w-0 flex-auto items-center">
-                    <p class="text-base truncate font-bold" style="color: #60D96C;">Block Position</p>
-                    <p class="mt-1 truncate font-bold text-base text-gray-300">
-                      <span id="BlockVal" style="color: #60D96C;">15.16</span> / <span>35</span>
-                    </p>
+                </li>
+                <li class="grid grid-cols-[auto,1fr] py-2 items-center">
+                  <div class="flex min-w-0 inline-block items-center">
+                    <svg class="h-4 w-8 flex-initial inline-block">
+                      <circle class="items-center" cx="6" cy="6" r="5" fill="#60D96C"/>
+                    </svg>
+                    <div class="flex-col min-w-0 flex-auto items-center">
+                      <p class="text-base truncate font-bold" style="color: #60D96C;">Block Position</p>
+                      <p class="mt-1 truncate font-bold text-base text-gray-300">
+                        <span id="BlockVal" style="color: #60D96C;">15.16</span> / <span>35</span>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </li>
-              <li class="grid grid-cols-[auto,1fr] pt-2 items-center">
-                <div class="flex min-w-0 inline-block items-center">
-                  <svg class="h-4 w-8 flex-initial inline-block">
-                    <circle class="items-center" cx="6" cy="6" r="5" fill="#C9A857"/>
-                  </svg>
-                  <div class="flex-col min-w-0 flex-auto items-center">
-                    <p class="text-base truncate font-bold" style="color: #C9A857;">ROPi</p>
-                    <p class="mt-1 truncate font-bold text-base text-gray-300">
-                      <span id="ROPiVal" style="color: #C9A857;">0</span> / <span>100</span>
-                    </p>
+                </li>
+                <li class="grid grid-cols-[auto,1fr] pt-2 items-center">
+                  <div class="flex min-w-0 inline-block items-center">
+                    <svg class="h-4 w-8 flex-initial inline-block">
+                      <circle class="items-center" cx="6" cy="6" r="5" fill="#C9A857"/>
+                    </svg>
+                    <div class="flex-col min-w-0 flex-auto items-center">
+                      <p class="text-base truncate font-bold" style="color: #C9A857;">ROPi</p>
+                      <p class="mt-1 truncate font-bold text-base text-gray-300">
+                        <span id="ROPiVal" style="color: #C9A857;">0</span> / <span>100</span>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          
-          <!-- Kolom kETIGA -->
-          <div class="flex items-start flex-col rounded-lg bg-white border border-gray-300 p-3">
-            <ul role="list" class="divide-y w-full divide-gray-300">
-              <li class="grid grid-cols-[auto,1fr] pb-2 items-center">
-                <div class="flex min-w-0 inline-block items-center">
-                  <svg class="h-4 w-8 flex-initial inline-block">
-                    <circle class="items-center" cx="6" cy="6" r="5" fill="#727CAB"/>
-                  </svg>
-                  <div class="flex-col min-w-0 flex-auto items-center">
-                    <p class="text-base truncate font-bold" style="color: #727CAB;">Flow Out</p>
-                    <p class="mt-1 truncate font-bold text-base text-gray-300">
-                      <span id="FlowOutVal" style="color: #727CAB;">0</span> / <span>100</span>
-                    </p>
+                </li>
+              </ul>
+            </div>
+            
+            <!-- Kolom kETIGA -->
+            <div class="flex items-start flex-col rounded-lg bg-white border border-gray-300 p-3">
+              <ul role="list" class="divide-y w-full divide-gray-300">
+                <li class="grid grid-cols-[auto,1fr] pb-2 items-center">
+                  <div class="flex min-w-0 inline-block items-center">
+                    <svg class="h-4 w-8 flex-initial inline-block">
+                      <circle class="items-center" cx="6" cy="6" r="5" fill="#727CAB"/>
+                    </svg>
+                    <div class="flex-col min-w-0 flex-auto items-center">
+                      <p class="text-base truncate font-bold" style="color: #727CAB;">Flow Out</p>
+                      <p class="mt-1 truncate font-bold text-base text-gray-300">
+                        <span id="FlowOutVal" style="color: #727CAB;">0</span> / <span>100</span>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </li>
-              <li class="grid grid-cols-[auto,1fr] py-2 items-center">
-                <div class="flex min-w-0 inline-block items-center">
-                  <svg class="h-4 w-8 flex-initial inline-block">
-                    <circle class="items-center" cx="6" cy="6" r="5" fill="#C33AC8"/>
-                  </svg>
-                  <div class="flex-col min-w-0 flex-auto items-center">
-                    <p class="text-base truncate font-bold" style="color: #C33AC8;">Backside Flow</p>
-                    <p class="mt-1 truncate font-bold text-base text-gray-300">
-                      <span id="BacksideVal" style="color: #C33AC8;">0</span> / <span>1200</span>
-                    </p>
+                </li>
+                <li class="grid grid-cols-[auto,1fr] py-2 items-center">
+                  <div class="flex min-w-0 inline-block items-center">
+                    <svg class="h-4 w-8 flex-initial inline-block">
+                      <circle class="items-center" cx="6" cy="6" r="5" fill="#C33AC8"/>
+                    </svg>
+                    <div class="flex-col min-w-0 flex-auto items-center">
+                      <p class="text-base truncate font-bold" style="color: #C33AC8;">Backside Flow</p>
+                      <p class="mt-1 truncate font-bold text-base text-gray-300">
+                        <span id="BacksideVal" style="color: #C33AC8;">0</span> / <span>1200</span>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </li>
-              <li class="grid grid-cols-[auto,1fr] pt-2 items-center">
-                <div class="flex min-w-0 inline-block items-center">
-                  <svg class="h-4 w-8 flex-initial inline-block">
-                    <circle class="items-center" cx="6" cy="6" r="5" fill="#666E40"/>
-                  </svg>
-                  <div class="flex-col min-w-0 flex-auto items-center">
-                    <p class="text-base truncate font-bold" style="color: #666E40;">Pit Volume Act</p>
-                    <p class="mt-1 truncate font-bold text-base text-gray-300">
-                      <span id="PitVolumeVal" style="color: #666E40;">817.59</span> / <span>1000</span>
-                    </p>
+                </li>
+                <li class="grid grid-cols-[auto,1fr] pt-2 items-center">
+                  <div class="flex min-w-0 inline-block items-center">
+                    <svg class="h-4 w-8 flex-initial inline-block">
+                      <circle class="items-center" cx="6" cy="6" r="5" fill="#666E40"/>
+                    </svg>
+                    <div class="flex-col min-w-0 flex-auto items-center">
+                      <p class="text-base truncate font-bold" style="color: #666E40;">Pit Volume Act</p>
+                      <p class="mt-1 truncate font-bold text-base text-gray-300">
+                        <span id="PitVolumeVal" style="color: #666E40;">817.59</span> / <span>1000</span>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </li>
-            </ul>
-          </div>
+                </li>
+              </ul>
+            </div>
 
-          <!-- Kolom keempat -->
-          <div class="flex items-start flex-col rounded-lg bg-white border border-gray-300 p-3">
-            <ul role="list" class="divide-y w-full divide-gray-300">
-              <li class="grid grid-cols-[auto,1fr] pb-2 items-center">
-                <div class="flex min-w-0 inline-block items-center">
-                  <svg class="h-4 w-8 flex-initial inline-block">
-                    <circle class="items-center" cx="6" cy="6" r="5" fill="#B10303"/>
-                  </svg>
-                  <div class="flex-col min-w-0 flex-auto items-center">
-                    <p class="text-base truncate font-bold" style="color: #B10303;">MW Out</p>
-                    <p class="mt-1 truncate font-bold text-base text-gray-300">
-                      <span id="MWOutVal" style="color: #B10303;">8.34</span> / <span>10</span>
-                    </p>
+            <!-- Kolom keempat -->
+            <div class="flex items-start flex-col rounded-lg bg-white border border-gray-300 p-3">
+              <ul role="list" class="divide-y w-full divide-gray-300">
+                <li class="grid grid-cols-[auto,1fr] pb-2 items-center">
+                  <div class="flex min-w-0 inline-block items-center">
+                    <svg class="h-4 w-8 flex-initial inline-block">
+                      <circle class="items-center" cx="6" cy="6" r="5" fill="#B10303"/>
+                    </svg>
+                    <div class="flex-col min-w-0 flex-auto items-center">
+                      <p class="text-base truncate font-bold" style="color: #B10303;">MW Out</p>
+                      <p class="mt-1 truncate font-bold text-base text-gray-300">
+                        <span id="MWOutVal" style="color: #B10303;">8.34</span> / <span>10</span>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </li>
-              <li class="grid grid-cols-[auto,1fr] py-2 items-center">
-                <div class="flex min-w-0 inline-block items-center">
-                  <svg class="h-4 w-8 flex-initial inline-block">
-                    <circle class="items-center" cx="6" cy="6" r="5" fill="#4188DC"/>
-                  </svg>
-                  <div class="flex-col min-w-0 flex-auto items-center">
-                    <p class="text-base truncate font-bold" style="color: #4188DC;">Temp Out</p>
-                    <p class="mt-1 truncate font-bold text-base text-gray-300">
-                      <span id="TempOutVal" style="color: #4188DC;">25</span> / <span>100</span>
-                    </p>
+                </li>
+                <li class="grid grid-cols-[auto,1fr] py-2 items-center">
+                  <div class="flex min-w-0 inline-block items-center">
+                    <svg class="h-4 w-8 flex-initial inline-block">
+                      <circle class="items-center" cx="6" cy="6" r="5" fill="#4188DC"/>
+                    </svg>
+                    <div class="flex-col min-w-0 flex-auto items-center">
+                      <p class="text-base truncate font-bold" style="color: #4188DC;">Temp Out</p>
+                      <p class="mt-1 truncate font-bold text-base text-gray-300">
+                        <span id="TempOutVal" style="color: #4188DC;">25</span> / <span>100</span>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </li>
-              <li class="grid grid-cols-[auto,1fr] pt-2 items-center">
-                <div class="flex min-w-0 inline-block items-center">
-                  <svg class="h-4 w-8 flex-initial inline-block">
-                    <circle class="items-center" cx="6" cy="6" r="5" fill="#9D631E"/>
-                  </svg>
-                  <div class="flex-col min-w-0 flex-auto items-center">
-                    <p class="text-base truncate font-bold" style="color: #9D631E;">Temp In</p>
-                    <p class="mt-1 truncate font-bold text-base text-gray-300">
-                      <span id="TempInVal" style="color: #9D631E;">23.53</span> / <span>100</span>
-                    </p>
+                </li>
+                <li class="grid grid-cols-[auto,1fr] pt-2 items-center">
+                  <div class="flex min-w-0 inline-block items-center">
+                    <svg class="h-4 w-8 flex-initial inline-block">
+                      <circle class="items-center" cx="6" cy="6" r="5" fill="#9D631E"/>
+                    </svg>
+                    <div class="flex-col min-w-0 flex-auto items-center">
+                      <p class="text-base truncate font-bold" style="color: #9D631E;">Temp In</p>
+                      <p class="mt-1 truncate font-bold text-base text-gray-300">
+                        <span id="TempInVal" style="color: #9D631E;">23.53</span> / <span>100</span>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </li>
-            </ul>
+                </li>
+              </ul>
+            </div>
+            
+            <!-- Kolom kelima -->
+            <div class="flex items-start flex-col rounded-lg bg-white border border-gray-300 p-3">
+              <ul role="list" class="divide-y w-full divide-gray-300">
+                <li class="grid grid-cols-[auto,1fr] pb-2 items-center">
+                  <div class="flex min-w-0 inline-block items-center">
+                    <svg class="h-4 w-8 flex-initial inline-block">
+                      <circle class="items-center" cx="6" cy="6" r="5" fill="#771960"/>
+                    </svg>
+                    <div class="flex-col min-w-0 flex-auto items-center">
+                      <p class="text-base truncate font-bold" style="color: #771960;">H2S Shaker</p>
+                      <p class="mt-1 truncate font-bold text-base text-gray-300">
+                        <span id="H2SShakerVal" style="color: #771960;">0</span> / <span>200</span>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li class="grid grid-cols-[auto,1fr] py-2 items-center">
+                  <div class="flex min-w-0 inline-block items-center">
+                    <svg class="h-4 w-8 flex-initial inline-block">
+                      <circle class="items-center" cx="6" cy="6" r="5" fill="#3F2E97"/>
+                    </svg>
+                    <div class="flex-col min-w-0 flex-auto items-center">
+                      <p class="text-base truncate font-bold" style="color: #3F2E97;">H2S Cellar</p>
+                      <p class="mt-1 truncate font-bold text-base text-gray-300">
+                        <span id="H2SCellarVal" style="color: #3F2E97;">0</span> / <span>20</span>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li class="grid grid-cols-[auto,1fr] pt-2 items-center">
+                  <div class="flex min-w-0 inline-block items-center">
+                    <svg class="h-4 w-8 flex-initial inline-block">
+                      <circle class="items-center" cx="6" cy="6" r="5" fill="#4AC599"/>
+                    </svg>
+                    <div class="flex-col min-w-0 flex-auto items-center">
+                      <p class="text-base truncate font-bold" style="color: #4AC599;">H2S Mud Pond</p>
+                      <p class="mt-1 truncate font-bold text-base text-gray-300">
+                        <span id="H2SMudPondVal" style="color: #4AC599;">0</span> / <span>200</span>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
-          
-          <!-- Kolom kelima -->
-          <div class="flex items-start flex-col rounded-lg bg-white border border-gray-300 p-3">
-            <ul role="list" class="divide-y w-full divide-gray-300">
-              <li class="grid grid-cols-[auto,1fr] pb-2 items-center">
-                <div class="flex min-w-0 inline-block items-center">
-                  <svg class="h-4 w-8 flex-initial inline-block">
-                    <circle class="items-center" cx="6" cy="6" r="5" fill="#771960"/>
-                  </svg>
-                  <div class="flex-col min-w-0 flex-auto items-center">
-                    <p class="text-base truncate font-bold" style="color: #771960;">H2S Shaker</p>
-                    <p class="mt-1 truncate font-bold text-base text-gray-300">
-                      <span id="H2SShakerVal" style="color: #771960;">0</span> / <span>200</span>
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="grid grid-cols-[auto,1fr] py-2 items-center">
-                <div class="flex min-w-0 inline-block items-center">
-                  <svg class="h-4 w-8 flex-initial inline-block">
-                    <circle class="items-center" cx="6" cy="6" r="5" fill="#3F2E97"/>
-                  </svg>
-                  <div class="flex-col min-w-0 flex-auto items-center">
-                    <p class="text-base truncate font-bold" style="color: #3F2E97;">H2S Cellar</p>
-                    <p class="mt-1 truncate font-bold text-base text-gray-300">
-                      <span id="H2SCellarVal" style="color: #3F2E97;">0</span> / <span>20</span>
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="grid grid-cols-[auto,1fr] pt-2 items-center">
-                <div class="flex min-w-0 inline-block items-center">
-                  <svg class="h-4 w-8 flex-initial inline-block">
-                    <circle class="items-center" cx="6" cy="6" r="5" fill="#4AC599"/>
-                  </svg>
-                  <div class="flex-col min-w-0 flex-auto items-center">
-                    <p class="text-base truncate font-bold" style="color: #4AC599;">H2S Mud Pond</p>
-                    <p class="mt-1 truncate font-bold text-base text-gray-300">
-                      <span id="H2SMudPondVal" style="color: #4AC599;">0</span> / <span>200</span>
-                    </p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          
         </div>
-      </div>
 
-        
         {{-- graph --}}
         <div class="w-full bg-slate-300 rounded-xl shadow-md shadow-black/25 h-96">
-
-        <div class="charts-container">
-        <div class="chart-container">
-            <canvas id="chart1"></canvas>
-        </div>
-        <div class="chart-container">
-            <canvas id="chart2"></canvas>
-        </div>
-        <div class="chart-container">
-            <canvas id="chart3"></canvas>
-        </div>
-        <div class="chart-container">
-            <canvas id="chart4"></canvas>
-        </div>
-    </div>
-
-
-    <!-- <script>
-        // Chart 1
-        const ctx1 = document.getElementById('chart1').getContext('2d');
-        const chart1 = new Chart(ctx1, {
-            type: 'line',
-            data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                datasets: [{
-                    label: 'Data 1',
-                    data: [10, 20, 30, 40, 50, 60],
-                    borderColor: 'red',
-                    backgroundColor: 'transparent'
-                }]
-            }
-        });
-
-        // Chart 2
-        const ctx2 = document.getElementById('chart2').getContext('2d');
-        const chart2 = new Chart(ctx2, {
-            type: 'line',
-            data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                datasets: [{
-                    label: 'Data 2',
-                    data: [50, 60, 70, 80, 90, 100],
-                    backgroundColor: 'blue'
-                }]
-            }
-        });
-
-        // Chart 3
-        const ctx3 = document.getElementById('chart3').getContext('2d');
-        const chart3 = new Chart(ctx3, {
-            type: 'line',
-            data: {
-                labels: ['A', 'B', 'C', 'D', 'E'],
-                datasets: [{
-                    label: 'Data 3',
-                    data: [10, 20, 30, 40, 50],
-                    backgroundColor: ['red', 'blue', 'green', 'yellow', 'purple']
-                }]
-            }
-        });
-
-        // Chart 4
-        const ctx4 = document.getElementById('chart4').getContext('2d');
-        const chart4 = new Chart(ctx4, {
-            type: 'line',
-            data: {
-                labels: ['A', 'B', 'C', 'D', 'E'],
-                datasets: [{
-                    label: 'Data 4',
-                    data: [20, 30, 40, 50, 60],
-                    backgroundColor: ['red', 'blue', 'green', 'yellow', 'purple']
-                }]
-            }
-        });
-    </script> -->
-
-    <div class="container px-4 mx-auto">
-
-      <div class="p-6 m-20 bg-white rounded shadow">
-          {!! $chart->container() !!}
-      </div>
-
-    </div>
-
-    
-
+          <div class="charts-container">
+            <div class="chart-container">
+                <canvas id="chart1"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="chart2"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="chart3"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="chart4"></canvas>
+            </div>
+          </div>
+          <div class="container px-4 mx-auto">
+            <div class="p-6 m-20 bg-white rounded shadow">
+                {!! $chart->container() !!}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -593,114 +514,50 @@
       <div class="flex flex-col w-2/12 space-y-6">
         <h2 class="text-pdu-orange text-2xl font-sans font-extrabold">Report</h2>
         <div class="w-full bg-slate-300 rounded-xl shadow-md shadow-black/25 h-72">
-
-        <div class="flex flex-col w-full h-fit space-y-6">
-    
-    <div class="flex flex-col w-full bg-white rounded-xl shadow-md shadow-black/25 divide-y">     
-      
-    <div class="flex flex-row bg-red-500 rounded-t-xl">
-    <i class="fa-solid fa-exclamation-triangle fa-lg p-2.5 text-white content-center"></i>
-        <div class="flex flex-col py-2 align-middle font-bold text-xs text-white">
-          <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
-          <p class="text-pdu-white">2024-03-19 15:27:16</p>
-        </div> 
-        </div>
-
-      <div class="flex flex-row">
-        <i class="fa-solid fa-circle fa-2xs p-3 text-pdu-orange content-center"></i>
-        <div class="flex flex-col py-2 align-middle font-bold text-xs">
-          <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
-          <p class="text-pdu-orange">2024-03-19 15:27:16</p>
-        </div> 
-        </div>
-
-        <div class="flex flex-row">
-        <i class="fa-solid fa-circle fa-2xs p-3 text-pdu-orange content-center"></i>
-        <div class="flex flex-col py-2 align-middle font-bold text-xs">
-          <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
-          <p class="text-pdu-orange">2024-03-19 15:27:16</p>
-        </div> 
-        </div>
-
-        <div class="flex flex-row">
-        <i class="fa-solid fa-circle fa-2xs p-3 text-pdu-orange content-center"></i>
-        <div class="flex flex-col py-2 align-middle font-bold text-xs">
-          <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
-          <p class="text-pdu-orange">2024-03-19 15:27:16</p>
-        </div> 
-        </div>
-
-        <div class="flex flex-row">
-        <i class="fa-solid fa-circle fa-2xs p-3 text-pdu-orange content-center"></i>
-        <div class="flex flex-col py-2 align-middle font-bold text-xs">
-          <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
-          <p class="text-pdu-orange">2024-03-19 15:27:16</p>
-        </div> 
-        </div>
-      </div>
-    </div>
-
+          <div class="flex flex-col w-full h-fit space-y-6">
+            <div class="flex flex-col w-full bg-white rounded-xl shadow-md shadow-black/25 divide-y">     
+              {{-- Repeatable Notification --}}
+              <div class="flex flex-row bg-red-500 rounded-t-xl">
+                <i class="fa-solid fa-exclamation-triangle fa-lg p-2.5 text-white content-center"></i>
+                <div class="flex flex-col py-2 align-middle font-bold text-xs text-white">
+                  <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
+                  <p class="text-pdu-white">2024-03-19 15:27:16</p>
+                </div> 
+              </div>
+              <div class="flex flex-row">
+                <i class="fa-solid fa-circle fa-2xs p-3 text-pdu-orange content-center"></i>
+                <div class="flex flex-col py-2 align-middle font-bold text-xs">
+                  <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
+                  <p class="text-pdu-orange">2024-03-19 15:27:16</p>
+                </div> 
+              </div>
+              <div class="flex flex-row">
+                <i class="fa-solid fa-circle fa-2xs p-3 text-pdu-orange content-center"></i>
+                <div class="flex flex-col py-2 align-middle font-bold text-xs">
+                  <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
+                  <p class="text-pdu-orange">2024-03-19 15:27:16</p>
+                </div> 
+              </div>
+              <div class="flex flex-row">
+                <i class="fa-solid fa-circle fa-2xs p-3 text-pdu-orange content-center"></i>
+                <div class="flex flex-col py-2 align-middle font-bold text-xs">
+                  <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
+                  <p class="text-pdu-orange">2024-03-19 15:27:16</p>
+                </div> 
+              </div>
+              <div class="flex flex-row">
+                <i class="fa-solid fa-circle fa-2xs p-3 text-pdu-orange content-center"></i>
+                <div class="flex flex-col py-2 align-middle font-bold text-xs">
+                  <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
+                  <p class="text-pdu-orange">2024-03-19 15:27:16</p>
+                </div> 
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
 
-    {{-- SIDEBAR --}}
-    {{-- <div class="h-screen flex overflow-hidden bg-gray-200">
-      <!-- Sidebar -->
-      <div class="absolute bg-gray-800 text-white w-56 min-h-screen overflow-y-auto transition-transform transform -translate-x-full ease-in-out duration-300"
-          id="sidebar">
-          <!-- Your Sidebar Content -->
-          <div class="p-4">
-              <h1 class="text-2xl font-semibold">Sidebar</h1>
-              <ul class="mt-4">
-                  <li class="mb-2"><a href="#" class="block hover:text-indigo-400">Home</a></li>
-                  <li class="mb-2"><a href="#" class="block hover:text-indigo-400">About</a></li>
-                  <li class="mb-2"><a href="#" class="block hover:text-indigo-400">Services</a></li>
-                  <li class="mb-2"><a href="#" class="block hover:text-indigo-400">Contact</a></li>
-              </ul>
-          </div>
-      </div>
-
-      <!-- Content -->
-      <div class="flex-1 flex flex-col overflow-hidden">
-          <!-- Navbar -->
-          <div class="bg-white shadow">
-              <div class="container mx-auto">
-                  <div class="flex justify-between items-center py-4 px-2">
-                      <h1 class="text-xl font-semibold">Animated Drawer</h1>
-
-                      <button class="text-gray-500 hover:text-gray-600" id="open-sidebar">
-                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                      </svg>
-                  </button>
-                  </div>
-              </div>
-          </div>
-          <!-- Content Body -->
-          <div class="flex-1 overflow-auto p-4">
-              <h1 class="text-2xl font-semibold">Welcome to our website</h1>
-              <p>... Content goes here ...</p>
-          </div>
-      </div>
-  </div> --}}
-
-  <script>
-    const sidebar = document.getElementById('sidebar');
-    const openSidebarButton = document.getElementById('open-sidebar');
-    
-    openSidebarButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        sidebar.classList.toggle('-translate-x-full');
-    });
-
-    // Close the sidebar when clicking outside of it
-    document.addEventListener('click', (e) => {
-        if (!sidebar.contains(e.target) && !openSidebarButton.contains(e.target)) {
-            sidebar.classList.add('-translate-x-full');
-        }
-    });
-  </script>
   <script src="{{ $chart->cdn() }}"></script>
   {{ $chart->script() }}
 
