@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,18 +15,18 @@ use App\Http\Controllers\UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
     return view('login');
 });
 
-// Route::get('/login', function () {
-//     return view('login_new');
-// });
-
 Route::get('/mainscreen', function () {
     return view('mainscreen');
-});
+})->name('mainscreen');
 
 Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
-//Route::get('/users', [UserController::class, 'index'])->name('chart1');
+
+// Login route
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+// Route to fetch company data
+Route::get('/company-data', [CompanyController::class, 'getCompanyData'])->name('company-data');

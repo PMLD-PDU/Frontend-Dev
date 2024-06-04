@@ -11,20 +11,20 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        // Validasi input
         $credentials = $request->only('email', 'password');
 
         try {
-            // Coba buat token dengan kredensial yang diberikan
             if (!$token = Auth::attempt($credentials)) {
                 return response()->json(['error' => 'Unauthorized'], 401);
             }
         } catch (JWTException $e) {
-            // Jika ada masalah dalam membuat token
             return response()->json(['error' => 'Could not create token'], 500);
         }
 
-        // Jika berhasil, kirimkan token
-        return response()->json(['token' => $token]);
+        $request->session()->put('token', $token);
+        var_dump($token);
+
+        return redirect()->route('mainscreen');
     }
 }
+
