@@ -19,6 +19,8 @@
     <title>Dashboard | {{ $rigName }} - {{ $companyName }}</title>
   </head>
   <body>
+
+    
     {{-- NAVBAR --}}
     <nav class="flex flex-row items-center bg-orange-muda justify-between max-h-24">
       <div class="flex flex-row items-center">

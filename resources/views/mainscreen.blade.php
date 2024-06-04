@@ -15,79 +15,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Mainscreen PDU</title>
-    <style>
-    body {
-        background-image: url('img_background.jpg');
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        font-family: 'Montserrat';
-    }
 
-    .card{
-        border-radius: 10%;
-    }
-
-    .login-title{
-        color: #E75C33;
-        font-weight: 800;
-        font-size: 28px;
-    }
-    
-    .login-content{
-        font-weight: 500;
-    }
-
-    .btn{
-        font-weight: 700;
-    }
-
-    .form-control{
-        background-color: #FCEBE7;
-    }
-
-    .btn-color{
-        background-color: #E75C33;
-        color: #fff;
-    }
-
-    .pdu-form{
-        background: #fff;
-        margin-top: 5%;
-        margin-bottom: 5%;
-        width: 50%;
-        border-radius: 10%;
-    }
-
-    /* .pdu-form .form-control{
-        border-radius:1rem;
-    } */
-
-    .pdu-image{
-        text-align: center;
-    }
-    
-    .pdu-image img{
-        width: 11%;
-        margin-top: -4%;
-    }
-    </style>
+    @vite('resources/css/mainscreen.css')
   </head>
-  <body>
-    {{-- <div class="container d-flex flex-column min-vh-100">
-
-        <div class="col d-flex justify-content-center">
-
-            <div class="card text-center" style="width: 18rem; height: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-    
-    </div> --}}
+  <body style="background-image: url('img_background.jpg');">
 
     <div class="container pdu-form">
 

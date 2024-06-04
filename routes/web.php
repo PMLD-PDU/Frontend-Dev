@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 // Route::get('/login', function () {
-//     return view('login');
+//     return view('login_new');
 // });
 
 Route::get('/mainscreen', function () {

@@ -1,0 +1,50 @@
+body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Montserrat';
+}
+
+.card{
+    border-radius: 10%;
+}
+
+.login-title{
+    color: #E75C33;
+    font-weight: 800;
+    font-size: 28px;
+}
+
+.login-content{
+    font-weight: 500;
+}
+
+.btn{
+    font-weight: 700;
+}
+
+.form-control{
+    background-color: #FCEBE7;
+}
+
+.btn-color{
+    background-color: #E75C33;
+    color: #fff;
+}
+
+.pdu-form{
+    background: #fff;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 50%;
+    border-radius: 10%;
+}
+
+.pdu-image{
+    text-align: center;
+}
+
+.pdu-image img{
+    width: 11%;
+    margin-top: -4%;
+}
