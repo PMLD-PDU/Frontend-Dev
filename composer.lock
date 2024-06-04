@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6923adab792f4f94cf0a4c3836655fb0",
+    "content-hash": "0b0fb149bd7d5b794119e811909922fe",
     "packages": [
         {
             "name": "arielmejiadev/larapex-charts",
