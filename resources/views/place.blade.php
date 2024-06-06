@@ -18,20 +18,16 @@
 
     @vite('resources/css/mainscreen.css')
   </head>
-  <body style="background-image: url('img_background.jpg');">
-
+  <body style="background-image: url('{{ asset('img_background.jpg') }}');">
     <div class="container pdu-form">
-
       <div class="pdu-image">
-        <img src="img_pdu.jpg" class="img-fluid profile-image-pic img-thumbnail rounded-circle shadow p-1"/>
+        <img src="{{ asset('img_pdu.jpg') }}" class="img-fluid profile-image-pic img-thumbnail rounded-circle shadow p-1"/>
       </div>
       <form class="card-body p-lg-5" action="{{ route('getPlace') }}" method="get">
-    
         <div class="mb-5 login-title">
             <i class="fa fa-desktop"></i>
             Real Time Monitoring
         </div>
-
         <div class="form-group  row my-2">
           <label for="staticEmail" class="col-sm-3 col-form-label">Place</label>
           <div class="form-group col-sm-9">

@@ -33,6 +33,7 @@ Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
 //Route::get('/users', [UserController::class, 'index'])->name('chart1');
 
 // login
+Route::get('/', [LoginController::class, 'index']);
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
