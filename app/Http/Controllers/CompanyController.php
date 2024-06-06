@@ -1,28 +1,32 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Charts\MonthlyUsersChart;
-use App\Charts\chart1;
-use Illuminate\Http\Request;
 
-class UserController extends Controller
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+
+class CompanyController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(MonthlyUsersChart $chart, chart1 $chart1)
+    public function index()
     {
-        // $chart = $chart->build();
-        // $chart1 = $chart1->build();
-        // return view('dashboard', compact('chart'));
-        return view('dashboard', ['chart' => $chart->build(), 'chart1' => $chart1->build()]);
-    } 
+        $response = Http::get('https://bepdu.aliifam.com/api/company');
 
-    // public function index1(chart1 $chart1)
-    // {
-    //     $chart1 = $chart1->build();
-    //     return view('dashboard', compact('chart1'));
-    // } 
+        // Cek status response
+        if ($response->ok()) {
+            // Parse data JSON dari response
+            $data = json_decode($response->getBody(), true);
+
+            // Kembalikan data ke view
+            dd($data);
+            // return view('data-api', ['data' => $data]);
+        } else {
+            // Tampilkan pesan error
+            return abort($response->getStatusCode());
+        }
+    }
 
     /**
      * Show the form for creating a new resource.

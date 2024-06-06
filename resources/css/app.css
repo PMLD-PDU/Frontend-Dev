@@ -5,6 +5,10 @@
 .text-orange {
     color: #E75C33;
   }
+
+.bg-orange{
+   background-color: #E75C33;
+ }
   
 .bg-orange-muda{
   background-color: #FFD7CB;
@@ -14,6 +18,15 @@
   background-color: #E5B6A9;
 }
 
-.bg-orange{
-  background-color: #E75C33;
+
+#dropdownMenu.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto; 
+}
+
+#dropdownMenu li a:hover {
+  /* background-color: red;  */
+  color: #FFD7CB; 
+  text-decoration: underline;
 }

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +24,10 @@ Route::get('/', function () {
 //     return view('login_new');
 // });
 
-Route::get('/mainscreen', function () {
-    return view('mainscreen');
-});
+// Route::get('/mainscreen', function () {
+//     return view('mainscreen');
+// });
 
+Route::get('/mainscreen', [CompanyController::class, 'index']);
 Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
 //Route::get('/users', [UserController::class, 'index'])->name('chart1');
