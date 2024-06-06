@@ -25,7 +25,8 @@
       <div class="pdu-image">
         <img src="img_pdu.jpg" class="img-fluid profile-image-pic img-thumbnail rounded-circle shadow p-1"/>
       </div>
-      <form class="card-body p-lg-5" action="{{ route('getPlace') }}" method="get">
+      {{-- <form class="card-body p-lg-5" action="{{ route('getPlace') }}" method="get"> --}}
+      <form class="card-body p-lg-5">
     
         <div class="mb-5 login-title">
             <i class="fa fa-desktop"></i>
@@ -36,18 +37,18 @@
           <label for="staticEmail" class="col-sm-3 col-form-label">Company</label>
           <div class="form-group col-sm-9">
             <div class="input-group mb-3 col-sm-9">
-              <select id="inputState" class="form-control" name='company_id'>
+              {{-- <select id="inputState" class="form-control" name='company_id'>
                 <option selected>- Select -</option>
                 @foreach ($data as $item)
                   <option value="{{ $item->id }}" >{{$item->name}}</option>
                   @endforeach
-              </select>
+              </select> --}}
             </div>
           </div>
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-end my-3">
-          <button class="btn btn-color" type="submit">Next</button>
+          <button class="btn btn-color" type="button">Next</button>
         </div>
 
       </form>

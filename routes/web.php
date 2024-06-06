@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +16,9 @@ use App\Http\Controllers\CompanyController;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
+// Route::get('/', function () {
+//     return view('login');
+// });
 
 // Route::get('/login', function () {
 //     return view('login_new');
@@ -31,3 +31,12 @@ Route::get('/', function () {
 Route::get('/mainscreen', [CompanyController::class, 'index']);
 Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
 //Route::get('/users', [UserController::class, 'index'])->name('chart1');
+
+// login
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'login'])->name('login');
+
+// mainscreen
+Route::get('/mainscreen', [LoginController::class, 'mainscreen']);
+Route::get('/mainscreen/place', [LoginController::class, 'place']) -> name('getPlace');
+Route::get('/mainscreen/well', [LoginController::class, 'well']) -> name('getWell');

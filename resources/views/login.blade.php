@@ -24,7 +24,8 @@
         <div class="pdu-image">
             <img src="img_pdu.jpg" class="img-fluid profile-image-pic img-thumbnail rounded-circle shadow p-1"/>
         </div>
-        <form class="p-lg-5">
+        <form class="p-lg-5" method="POST" action="{{ route('login') }}">
+            @csrf
             <div class="mb-1 login-title">
                 <i class="fa fa-sign-in" aria-hidden="true"></i>
                 Login
@@ -35,7 +36,7 @@
             </div>
 
             <div class="mb-2">
-                <input type="text" class="form-control" id="Username" aria-describedby="emailHelp" placeholder="Your email">
+                <input type="text" class="form-control" id="Username" name="email" aria-describedby="emailHelp" placeholder="Your email">
             </div>
 
             <div class="mb-1 login-content">
@@ -43,7 +44,7 @@
             </div>
 
             <div class="mb-3">
-                <input type="password" class="form-control" id="password" placeholder="Your password">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Your password">
             </div>
 
             <div class="text-center">
