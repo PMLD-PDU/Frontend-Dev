@@ -16,19 +16,6 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('login');
-// });
-
-// Route::get('/login', function () {
-//     return view('login_new');
-// });
-
-// Route::get('/mainscreen', function () {
-//     return view('mainscreen');
-// });
-
-Route::get('/mainscreen', [CompanyController::class, 'index']);
 Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
 //Route::get('/users', [UserController::class, 'index'])->name('chart1');
 

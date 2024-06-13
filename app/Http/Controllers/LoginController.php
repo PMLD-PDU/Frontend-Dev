@@ -27,7 +27,7 @@ class LoginController extends Controller
         ];
 
         // Lakukan request login ke REST API
-        $response = Http::post('https://bepdu.aliifam.com/api/employee/login', $data);
+        $response = Http::post('http://27.112.79.127/api/employee/login', $data);
         // dd($response);
 
         // Cek status response
@@ -74,7 +74,7 @@ class LoginController extends Controller
             'Accept' => 'application/json', 
         ];
 
-        $response_company = $client->get('https://bepdu.aliifam.com/api/company', [
+        $response_company = $client->get('http://27.112.79.127/api/company', [
             'headers' => $headers,
         ]);
         // dd($response->getBody()->getContents());
@@ -101,7 +101,7 @@ class LoginController extends Controller
             'Accept' => 'application/json', 
         ];
 
-        $response_place = $client->get('https://bepdu.aliifam.com/api/company/'.$company_id.'/place', [
+        $response_place = $client->get('http://27.112.79.127/api/company/'.$company_id.'/place', [
             'headers' => $headers,
         ]);
         // dd($response->getBody()->getContents());
@@ -114,35 +114,67 @@ class LoginController extends Controller
             // Handle error response
             echo 'Terjadi kesalahan: ' . $response_place->getStatusCode();
         }
-
         
         return view('/place', compact('place'));
 
     }
+    // public function well(Request $request){
+    //     $client = new Client();
+    //     $company_id = $request->company_id;
+
+    //     $headers = [
+    //         'Authorization' => 'Bearer ' . session('access_token'),
+    //         'Accept' => 'application/json', 
+    //     ];
+
+    //     $response_well = $client->get('http://27.112.79.127/api/company/'.$company_id.'/place', [
+    //         'headers' => $headers,
+    //     ]);
+    //     // dd($response->getBody()->getContents());
+
+    //     if ($response_well->getStatusCode() === 200) {
+    //         $well = json_decode($response_well->getBody()->getContents()) -> data;
+    //         // Proses data yang diperoleh
+    //         // dd($data);
+    //     } else {
+    //         // Handle error response
+    //         echo 'Terjadi kesalahan: ' . $response_well->getStatusCode();
+    //     }
+        
+    //     return view('/well', compact('well'));
+    // }
+
     public function well(Request $request){
         $client = new Client();
         $company_id = $request->company_id;
+        $place_id = $request->place_id;
+
+        // Validasi input
+        if (empty($company_id) || empty($place_id)) {
+            return response()->json(['message' => 'Company ID or Place ID is missing'], 400);
+        }
 
         $headers = [
             'Authorization' => 'Bearer ' . session('access_token'),
             'Accept' => 'application/json', 
         ];
 
-        $response_place = $client->get('https://bepdu.aliifam.com/api/company/'.$company_id.'/place', [
+        $url = sprintf('http://27.112.79.127/api/company/%s/place/%s/well', $company_id, $place_id);
+
+        $response_well = $client->get($url, [
             'headers' => $headers,
         ]);
         // dd($response->getBody()->getContents());
 
-        if ($response_place->getStatusCode() === 200) {
-            $place = json_decode($response_place->getBody()->getContents()) -> data;
+        if ($response_well->getStatusCode() === 200) {
+            $well = json_decode($response_well->getBody()->getContents()) -> data;
             // Proses data yang diperoleh
             // dd($data);
         } else {
             // Handle error response
-            echo 'Terjadi kesalahan: ' . $response_place->getStatusCode();
+            echo 'Terjadi kesalahan: ' . $response_well->getStatusCode();
         }
         
-        return view('/place', compact('place'));
-
+        return view('/well', compact('data'));
     }
 }

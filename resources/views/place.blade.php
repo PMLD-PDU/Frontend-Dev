@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>Mainscreen PDU</title>
+    <title>Place Page PDU</title>
 
     @vite('resources/css/mainscreen.css')
   </head>
@@ -23,12 +23,12 @@
       <div class="pdu-image">
         <img src="{{ asset('img_pdu.jpg') }}" class="img-fluid profile-image-pic img-thumbnail rounded-circle shadow p-1"/>
       </div>
-      <form class="card-body p-lg-5" action="{{ route('getPlace') }}" method="get">
+      <form class="card-body p-lg-5" action="{{ route('getWell') }}" method="get">
         <div class="mb-5 login-title">
             <i class="fa fa-desktop"></i>
             Real Time Monitoring
         </div>
-        <div class="form-group  row my-2">
+        <div class="form-group row my-2">
           <label for="staticEmail" class="col-sm-3 col-form-label">Place</label>
           <div class="form-group col-sm-9">
             <div class="input-group mb-3 col-sm-9">
@@ -43,7 +43,7 @@
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-end my-3">
-          <button class="btn btn-color" type="button">Next</button>
+          <button class="btn btn-color" type="submit">Next</button>
         </div>
 
       </form>
