@@ -28,3 +28,6 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/mainscreen', [LoginController::class, 'mainscreen']);
 Route::get('/mainscreen/place', [LoginController::class, 'place']) -> name('getPlace');
 Route::get('/mainscreen/well', [LoginController::class, 'well']) -> name('getWell');
+
+// //dashboard
+// Route::get('/mainscreen/well', [LoginController::class, 'well']) -> name('getWell');

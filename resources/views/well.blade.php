@@ -25,7 +25,7 @@
       <div class="pdu-image">
         <img src="{{ asset('img_pdu.jpg') }}" class="img-fluid profile-image-pic img-thumbnail rounded-circle shadow p-1"/>
       </div>
-      <form class="card-body p-lg-5" action="{{ route('getWell') }}">
+      <form class="card-body p-lg-5" action="{{ route('dashboard') }}">
     
         <div class="mb-5 login-title">
             <i class="fa fa-desktop"></i>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-end my-3">
-          <button class="btn btn-color" type="button">Submit</button>
+          <button class="btn btn-color" type="submit">Submit</button>
         </div>
 
       </form>
