@@ -115,34 +115,9 @@ class LoginController extends Controller
             echo 'Terjadi kesalahan: ' . $response_place->getStatusCode();
         }
         
-        return view('/place', compact('place'));
+        return view('/place', compact('place', 'company_id'));
 
     }
-    // public function well(Request $request){
-    //     $client = new Client();
-    //     $company_id = $request->company_id;
-
-    //     $headers = [
-    //         'Authorization' => 'Bearer ' . session('access_token'),
-    //         'Accept' => 'application/json', 
-    //     ];
-
-    //     $response_well = $client->get('http://27.112.79.127/api/company/'.$company_id.'/place', [
-    //         'headers' => $headers,
-    //     ]);
-    //     // dd($response->getBody()->getContents());
-
-    //     if ($response_well->getStatusCode() === 200) {
-    //         $well = json_decode($response_well->getBody()->getContents()) -> data;
-    //         // Proses data yang diperoleh
-    //         // dd($data);
-    //     } else {
-    //         // Handle error response
-    //         echo 'Terjadi kesalahan: ' . $response_well->getStatusCode();
-    //     }
-        
-    //     return view('/well', compact('well'));
-    // }
 
     public function well(Request $request){
         $client = new Client();
@@ -175,6 +150,6 @@ class LoginController extends Controller
             echo 'Terjadi kesalahan: ' . $response_well->getStatusCode();
         }
         
-        return view('/well', compact('data'));
+        return view('/well', compact('well'));
     }
 }

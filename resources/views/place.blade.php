@@ -42,6 +42,9 @@
           </div>
         </div>
 
+        <!-- Hidden input for company_id -->
+        <input type="hidden" name="company_id" value="{{ $company_id }}">
+
         <div class="d-grid gap-2 d-md-flex justify-content-md-end my-3">
           <button class="btn btn-color" type="submit">Next</button>
         </div>

@@ -18,7 +18,7 @@
 
     @vite('resources/css/mainscreen.css')
   </head>
-  <body style="background-image: url('img_background.jpg');">
+  <body style="background-image: url('{{ asset('img_background.jpg') }}');">
 
     <div class="container pdu-form">
 
@@ -33,12 +33,12 @@
         </div>
 
         <div class="form-group row my-2">
-          <label for="staticEmail" class="col-sm-3 col-form-label">Company</label>
+          <label for="staticEmail" class="col-sm-3 col-form-label">Well</label>
           <div class="form-group col-sm-9">
             <div class="input-group mb-3 col-sm-9">
               <select id="inputState" class="form-control" name='well_id'>
                 <option selected>- Select -</option>
-                @foreach ($data as $item)
+                @foreach ($well as $item)
                   <option value="{{ $item->id }}" >{{$item->name}}</option>
                   @endforeach
               </select>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-end my-3">
-          <button class="btn btn-color" type="button">Next</button>
+          <button class="btn btn-color" type="button">Submit</button>
         </div>
 
       </form>
