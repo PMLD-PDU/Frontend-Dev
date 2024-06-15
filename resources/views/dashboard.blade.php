@@ -76,7 +76,7 @@
         </div>    
       </div>
       
-      {{-- dropdown --}}
+      <!-- Dropdown -->
       <div class="mx-4 flex items-center justify-between">
         <img src="img_pdu.jpg" alt="Gambar" class="w-12 h-12 rounded-full mr-2">
         <div class="relative">
@@ -85,14 +85,19 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
+          
           <!-- Menu dropdown -->
-          <div class="absolute">
-            <ul class="bg-gray-700 text-white py-1 px-2 rounded-lg mt-2 opacity-0 transition duration-300 transform scale-95 origin-top-right right-0 focus:outline-none focus-within:opacity-100 focus-within:scale-100 block">
-              <li><a href="#" class=" px-4 py-2">Keluar</a></li>
+          <div class="absolute right-0 mt-2">
+            <ul id="dropdownMenu" action="{{ route('logout') }}" method="POST" class="bg-gray-700 text-white py-1 px-2 rounded-lg opacity-0 transition duration-300 transform scale-95 origin-top-right focus-within:opacity-100 focus-within:scale-100" style="display: none;">
+              <li>
+                @csrf
+                {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
+                <a href="/login" class="block px-4 py-2">Keluar</a>
+              </li>
             </ul>
           </div>
         </div>
-      </div>     
+      </div>    
     </nav>
     
     <!-- Sidebar -->
@@ -510,7 +515,7 @@
           </div>
         </div>
 
-          </div> 
+      </div> 
 
       {{-- REPORT SECTION --}}
         <div class="flex flex-col w-2/12 space-y-6">
@@ -564,18 +569,33 @@
     <div id="dashboard-container" data-well-id="{{ $well_id }}">
     </div>
 
+    <!-- JS -->
     <script>
-      document.getElementById("dropdownButton").addEventListener("click", function() {
+      document.getElementById("dropdownButton").addEventListener("click", function(event) {
+        event.stopPropagation(); // Prevent the event from bubbling up to document
         var menu = document.getElementById("dropdownMenu");
         if (menu.style.display === "none" || menu.style.display === "") {
           menu.style.display = "block";
+          menu.classList.add('opacity-100', 'scale-100');
+          menu.classList.remove('opacity-0', 'scale-95');
         } else {
           menu.style.display = "none";
+          menu.classList.add('opacity-0', 'scale-95');
+          menu.classList.remove('opacity-100', 'scale-100');
+        }
+      });
+
+      // Close the dropdown when clicking outside of it
+      document.addEventListener("click", function(event) {
+        var menu = document.getElementById("dropdownMenu");
+        var button = document.getElementById("dropdownButton");
+        if (!button.contains(event.target) && !menu.contains(event.target)) {
+          menu.style.display = "none";
+          menu.classList.add('opacity-0', 'scale-95');
+          menu.classList.remove('opacity-100', 'scale-100');
         }
       });
     </script>
-
-  
 
   <script src="{{ $chart->cdn() }}"></script>
   {{ $chart->script() }}
