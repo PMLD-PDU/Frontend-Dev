@@ -13,6 +13,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+  <style>
+      .charts-container {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          transform: rotate(90deg);
+          width: 100%;
+          height: 900px;
+      }
+
+      .chart-container {
+          flex: 1;
+          height: 100%;
+          width: 100%;
+      }
+  </style>
+
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     @vite('resources/js/sidebar.js')
@@ -72,9 +90,13 @@
           </button>
           
           <!-- Menu dropdown -->
-          <div class="absolute">
-            <ul class="bg-gray-700 text-white py-1 px-2 rounded-lg mt-2 opacity-0 transition duration-300 transform scale-95 origin-top-right right-0 focus:outline-none focus-within:opacity-100 focus-within:scale-100 block">
-              <li><a href="#" class=" px-4 py-2">Keluar</a></li>
+          <div class="absolute right-0 mt-2">
+            <ul id="dropdownMenu" action="{{ route('logout') }}" method="POST" class="bg-orange text-white py-1 px-2 rounded-lg opacity-0 transition duration-300 transform scale-95 origin-top-right focus-within:opacity-100 focus-within:scale-100" style="display: none;">
+              <li>
+                @csrf
+                {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
+                <a href="/login" class="block px-4 py-2">Keluar</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -479,29 +501,29 @@
         </div>
 
         {{-- graph --}}
-          <div id="graph_container" class="flex flex-col w-full space-y-5">
-            <div class="flex flex-row w-full space-x-5">
-              <div class="w-full bg-white rounded-xl shadow-md shadow-black/25">
-                <canvas id="chart1" class="m-2" height="750"></canvas>
-              </div>
-              <div class="w-full bg-white rounded-xl shadow-md shadow-black/25">
-                <canvas id="chart2" class="m-2" height="750"></canvas>
-              </div>
+        <div id="graph_container" class="flex flex-col w-full space-y-5">
+          <div class="flex flex-row w-full space-x-5">
+            <div class="w-full bg-white rounded-xl shadow-md shadow-black/25">
+              <canvas id="chart1" class="m-2" height="750"></canvas>
             </div>
-            <div class="flex flex-row w-full jus space-x-5">
-              <div class="w-full bg-white rounded-xl shadow-md shadow-black/25">
-                <canvas id="chart3" class="m-2" height="750"></canvas>
-              </div>
-              <div class="w-full bg-white rounded-xl shadow-md shadow-black/25">
-                <canvas id="chart4" class="m-2" height="750"></canvas>
-              </div>
+            <div class="w-full bg-white rounded-xl shadow-md shadow-black/25">
+              <canvas id="chart2" class="m-2" height="750"></canvas>
             </div>
           </div>
-      
-{{-- <div class="mx-2" style="transform: rotate(90deg);">
-              {!! $chart->container() !!}
-              {!! $chart1->container() !!} --}}
-          </div> 
+          <div class="flex flex-row w-full jus space-x-5">
+            <div class="w-full bg-white rounded-xl shadow-md shadow-black/25">
+              <canvas id="chart3" class="m-2" height="750"></canvas>
+            </div>
+            <div class="w-full bg-white rounded-xl shadow-md shadow-black/25">
+              <canvas id="chart4" class="m-2" height="750"></canvas>
+            </div>
+          </div>
+        </div>
+
+      {{-- <div class="mx-2" style="transform: rotate(90deg);">
+            {!! $chart->container() !!}
+            {!! $chart1->container() !!} --}}
+      </div> 
 
       {{-- REPORT SECTION --}}
         <div class="flex flex-col w-2/12 space-y-6">
