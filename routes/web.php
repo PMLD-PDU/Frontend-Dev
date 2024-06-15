@@ -17,7 +17,6 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
-//Route::get('/users', [UserController::class, 'index'])->name('chart1');
 
 // login
 Route::get('/', [LoginController::class, 'index']);
@@ -26,8 +25,8 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 // mainscreen
 Route::get('/mainscreen', [LoginController::class, 'mainscreen']);
-Route::get('/mainscreen/place', [LoginController::class, 'place']) -> name('getPlace');
-Route::get('/mainscreen/well', [LoginController::class, 'well']) -> name('getWell');
+Route::get('/mainscreen/place', [LoginController::class, 'place'])->name('getPlace');
+Route::get('/mainscreen/well', [LoginController::class, 'well'])->name('getWell');
 
-// //dashboard
-// Route::get('/mainscreen/well', [LoginController::class, 'well']) -> name('getWell');
+// API route for fetching sensor data
+Route::get('/api/dashboard-data', [UserController::class, 'sensor'])->name('api.dashboard-data');
