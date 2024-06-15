@@ -87,13 +87,9 @@
           </button>
           
           <!-- Menu dropdown -->
-          <div class="absolute right-0 mt-2" style="text-decoration: none;">
-            <ul id="dropdownMenu" action="{{ route('logout') }}" method="POST" class="bg-orange text-white py-1 px-2 rounded-lg opacity-0 transition duration-300 transform scale-95 origin-top-right focus-within:opacity-100 focus-within:scale-100" style="display: none;">
-              <li>
-                @csrf
-                {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
-                <a href="/login" class="block px-4 py-2">Keluar</a>
-              </li>
+          <div class="absolute">
+            <ul class="bg-gray-700 text-white py-1 px-2 rounded-lg mt-2 opacity-0 transition duration-300 transform scale-95 origin-top-right right-0 focus:outline-none focus-within:opacity-100 focus-within:scale-100 block">
+              <li><a href="#" class=" px-4 py-2">Keluar</a></li>
             </ul>
           </div>
         </div>
