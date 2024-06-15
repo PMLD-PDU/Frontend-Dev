@@ -13,29 +13,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <style>
-      .charts-container {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          align-items: center;
-          transform: rotate(90deg);
-          width: 100%;
-          height: 900px;
-      }
-
-      .chart-container {
-          flex: 1;
-          height: 100%;
-          width: 100%;
-      }
-  </style>
-
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     @vite('resources/js/sidebar.js')
     @vite('resources/js/dashboard.js')
-    @vite('resources/js/chart_settings.js')
+    @vite('resources/js/chart/chart1_settings.js')
+    @vite('resources/js/chart/chart2_settings.js')
+    @vite('resources/js/chart/chart3_settings.js')
+    @vite('resources/js/chart/chart4_settings.js')
 
     {{-- <title>Dashboard | {{ $rigName }} - {{ $companyName }}</title> --}}
   </head>
@@ -498,24 +483,29 @@
         </div>
 
         {{-- graph --}}
-        <div class="w-full bg-white rounded-xl shadow-md shadow-black/25">
-          <div class="flex flex-col m-4">
-            <div class="flex flex-row">
-              <canvas id="chart1"></canvas>
-              <canvas id="chart2"></canvas>
+          <div id="graph_container" class="flex flex-col w-full space-y-5">
+            <div class="flex flex-row w-full space-x-5">
+              <div class="w-full bg-white rounded-xl shadow-md shadow-black/25">
+                <canvas id="chart1" class="m-2" height="750"></canvas>
+              </div>
+              <div class="w-full bg-white rounded-xl shadow-md shadow-black/25">
+                <canvas id="chart2" class="m-2" height="750"></canvas>
+              </div>
             </div>
-            <div class="flex flex-row">
-              <canvas id="chart3"></canvas>
-              <canvas id="chart4"></canvas>
+            <div class="flex flex-row w-full jus space-x-5">
+              <div class="w-full bg-white rounded-xl shadow-md shadow-black/25">
+                <canvas id="chart3" class="m-2" height="750"></canvas>
+              </div>
+              <div class="w-full bg-white rounded-xl shadow-md shadow-black/25">
+                <canvas id="chart4" class="m-2" height="750"></canvas>
+              </div>
             </div>
-
-          {{-- <div class="mx-2" style="transform: rotate(90deg);">
+          </div>
+      
+{{-- <div class="mx-2" style="transform: rotate(90deg);">
               {!! $chart->container() !!}
               {!! $chart1->container() !!} --}}
-          </div>
-        </div>
-
-      </div> 
+          </div> 
 
       {{-- REPORT SECTION --}}
         <div class="flex flex-col w-2/12 space-y-6">
