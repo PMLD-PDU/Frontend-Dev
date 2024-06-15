@@ -32,23 +32,23 @@
             Real Time Monitoring
         </div>
 
-        <div class="form-group  row my-2">
-          <label for="staticEmail" class="col-sm-3 col-form-label">Company</label>
+        <div class="form-group row my-2">
+          <label for="company" class="col-sm-3 col-form-label">Company</label>
           <div class="form-group col-sm-9">
-            <div class="input-group mb-3 col-sm-9">
-              <select id="inputState" class="form-control" name='company_id'>
-                <option selected>- Select -</option>
-                @foreach ($data as $item)
-                  <option value="{{ $item->id }}" >{{$item->name}}</option>
-                  @endforeach
-              </select>
-            </div>
+              <div class="input-group mb-3 col-sm-9">
+                  <select id="company" class="form-control" name="company_id" required>
+                      <option value="" selected disabled>- Select -</option>
+                      @foreach ($data as $item)
+                          <option value="{{ $item->id }}">{{ $item->name }}</option>
+                      @endforeach
+                  </select>
+              </div>
           </div>
-        </div>
+      </div>
 
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end my-3">
-          <button class="btn btn-color" type="submit">Next</button>
-        </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end my-3">
+        <button class="btn btn-color" type="submit">Next</button>
+      </div>
 
       </form>
       </div>

@@ -29,11 +29,11 @@
             Real Time Monitoring
         </div>
         <div class="form-group row my-2">
-          <label for="staticEmail" class="col-sm-3 col-form-label">Place</label>
+          <label for="place" class="col-sm-3 col-form-label">Place</label>
           <div class="form-group col-sm-9">
             <div class="input-group mb-3 col-sm-9">
-              <select id="inputState" class="form-control" name='place_id'>
-                <option selected>- Select -</option>
+              <select id="place" class="form-control" name='place_id' required>
+                <option value="" selected disabled>- Select -</option>
                 @foreach ($place as $item)
                   <option value="{{ $item->id }}" >{{$item->name}}</option>
                   @endforeach

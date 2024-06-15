@@ -87,8 +87,8 @@
           </button>
           
           <!-- Menu dropdown -->
-          <div class="absolute right-0 mt-2">
-            <ul id="dropdownMenu" action="{{ route('logout') }}" method="POST" class="bg-gray-700 text-white py-1 px-2 rounded-lg opacity-0 transition duration-300 transform scale-95 origin-top-right focus-within:opacity-100 focus-within:scale-100" style="display: none;">
+          <div class="absolute right-0 mt-2" style="text-decoration: none;">
+            <ul id="dropdownMenu" action="{{ route('logout') }}" method="POST" class="bg-orange text-white py-1 px-2 rounded-lg opacity-0 transition duration-300 transform scale-95 origin-top-right focus-within:opacity-100 focus-within:scale-100" style="display: none;">
               <li>
                 @csrf
                 {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
