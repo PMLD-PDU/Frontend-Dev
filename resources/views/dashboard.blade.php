@@ -34,6 +34,8 @@
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     @vite('resources/js/sidebar.js')
+    @vite('resources/js/dashboard.js')
+    @vite('resources/js/chart_settings.js')
 
     {{-- <title>Dashboard | {{ $rigName }} - {{ $companyName }}</title> --}}
   </head>
@@ -229,32 +231,32 @@
               <div class="flex flex-row">
               <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
               <div class="flex flex-col py-2 align-middle font-bold text-base">
-                <p>Tank Vol. 1</p>
-                <p class="text-pdu-orange" id="tank_vol_1">390.38 bbl</p>
+                <p>Tank Total Volume</p>
+                <p class="text-pdu-orange" id="tank_vol_total">390.38 bbl</p>
               </div> 
               </div>
 
               <div class="flex flex-row">
               <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
               <div class="flex flex-col py-2 align-middle font-bold text-base">
-                <p>Tank Vol. 2</p>
-                <p class="text-pdu-orange" id="tank_vol_2">66.93 bbl</p>
+                <p>SCFM</p>
+                <p class="text-pdu-orange" id="tank_scfm">66.93 bbl</p>
               </div> 
               </div>
 
               <div class="flex flex-row">
               <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
               <div class="flex flex-col py-2 align-middle font-bold text-base">
-                <p>Tank Vol. 3</p>
-                <p class="text-pdu-orange" id="tank_vol_3">26.05 bbl</p>
+                <p>Mud Condition In</p>
+                <p class="text-pdu-orange" id="tank_mud_cond_in">26.05 bbl</p>
               </div> 
               </div>
 
               <div class="flex flex-row">
               <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
               <div class="flex flex-col py-2 align-middle font-bold text-base">
-                <p>Tank Vol. 4</p>
-                <p class="text-pdu-orange" id="tank_vol_4">165.73 bbl</p>
+                <p>Mud Condition Out</p>
+                <p class="text-pdu-orange" id="tank_mud_cond_out">165.73 bbl</p>
               </div> 
               </div>
             </div>
@@ -266,31 +268,31 @@
             <div class="flex flex-row">
               <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
               <div class="flex flex-col py-2 align-middle font-bold text-base">
-                <p>SPM 1</p>
-                <p class="text-pdu-orange" id="spm_1">0</p>
+                <p>SPM Total</p>
+                <p class="text-pdu-orange" id="spm_total">0</p>
               </div> 
               </div>
 
               <div class="flex flex-row">
               <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
               <div class="flex flex-col py-2 align-middle font-bold text-base">
-                <p>SPM 2</p>
-                <p class="text-pdu-orange" id="spm_2">0</p>
+                <p>Surpress</p>
+                <p class="text-pdu-orange" id="spm_surpress">0</p>
               </div> 
               </div>
 
               <div class="flex flex-row">
               <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
               <div class="flex flex-col py-2 align-middle font-bold text-base">
-                <p>SPM 3</p>
-                <p class="text-pdu-orange" id="spm_3">0</p>
+                <p>Mud Flow In</p>
+                <p class="text-pdu-orange" id="spm_mud_flow_in">0</p>
               </div> 
               </div>
 
               <div class="flex flex-row">
               <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
               <div class="flex flex-col py-2 align-middle font-bold text-base">
-                <p>SPM 4</p>
+                <p>CO2</p>
                 <p class="text-pdu-orange" id="spm_4">0</p>
               </div> 
               </div>
@@ -492,10 +494,19 @@
 
         {{-- graph --}}
         <div class="w-full bg-white rounded-xl shadow-md shadow-black/25">
-          <div class="mx-2">
-          {{-- <div class="mx-2" style="transform: rotate(90deg);"> --}}
+          <div class="flex flex-col m-4">
+            <div class="flex flex-row">
+              <canvas id="chart1"></canvas>
+              <canvas id="chart2"></canvas>
+            </div>
+            <div class="flex flex-row">
+              <canvas id="chart3"></canvas>
+              <canvas id="chart4"></canvas>
+            </div>
+
+          {{-- <div class="mx-2" style="transform: rotate(90deg);">
               {!! $chart->container() !!}
-              {!! $chart1->container() !!}
+              {!! $chart1->container() !!} --}}
           </div>
         </div>
 
@@ -549,6 +560,9 @@
         </div>
       </div>
     </main>
+
+    <div id="dashboard-container" data-well-id="{{ $well_id }}">
+    </div>
 
     <script>
       document.getElementById("dropdownButton").addEventListener("click", function() {
