@@ -1,14 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
     const wellId = document.getElementById('dashboard-container').getAttribute('data-well-id');
-    window.latestData = null;
 
     function fetchData() {
-        fetch(`http://127.0.0.1:8000/api/dashboard-data?well_id=${wellId}`)
+        fetch(`/api/dashboard-data?well_id=${wellId}`)
             .then(response => response.json())
             .then(data => {
-                window.latestData = data[data.length - 1];
+                let latestData = data[data.length - 1];
+
+                // Dispatch custom event with latestData
+                const event = new CustomEvent('latestDataUpdated', { detail: data });
+                document.dispatchEvent(event);
+
                 // Update DOM elements with new data
-                document.getElementById('bit_depth').innerText = window.latestData['bitdepth'];
+                document.getElementById('bit_depth').innerText = latestData['bitdepth'];
                 document.getElementById('tank_vol_total').innerText = data.tankvoltot;
                 document.getElementById('tank_scfm').innerText = data.scfm;
                 document.getElementById('tank_mud_cond_in').innerText = data.mudcondin;
