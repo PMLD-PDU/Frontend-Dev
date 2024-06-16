@@ -49,6 +49,22 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => console.error('Error fetching data:', error));
     }
 
+    function fetchCompanyData(companyId) {
+        fetch(`/sensor-by-company?company_id=${companyId}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('companyName').innerText = data['name'];
+            })
+            .catch(error => console.error('Error fetching company data:', error));
+    }
+    
+    function fetchCompany() {
+        const companyId = document.getElementById('company-data').getAttribute('data-company-id');
+        
+        fetchCompanyData(companyId);
+    }
+    
+
     function displayCurrentDateTime() {
         const now = new Date();
 
@@ -71,4 +87,5 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(fetchData, 10000);
 
     fetchData();
+    fetchCompany();
 });

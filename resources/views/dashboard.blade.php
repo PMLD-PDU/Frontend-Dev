@@ -104,7 +104,7 @@
     </nav>
     
     <!-- Sidebar -->
-    <div class="absolute bg-orange text-white w-1/6 min-h-screen overflow-y-auto transition-transform transform -translate-x-full ease-in-out duration-300 z-20"
+    <div class="absolute bg-orange text-white w-1/6 h-screen overflow-y-auto transition-transform transform -translate-x-full ease-in-out duration-300 z-20"
       id="sidebar">
       <!-- Your Sidebar Content -->
       <div class="p-4">
@@ -586,6 +586,8 @@
     </main>
 
     <div id="dashboard-container" data-well-id="{{ $well_id }}">
+    <div id="company-data" data-company-id="{{ $company_id }}">
+
     </div>
 
     <!-- JS -->
