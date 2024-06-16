@@ -1,11 +1,15 @@
  // Sample data for demonstration
+ import { data } from '../dashboard';
  const labels = ['January', 'February', 'March', 'April', 'May', 'June'];
+ const latestData = data[data.length - 1];
+ console.log(latestData);
+ const test = latestData['wob'];
  const data = {
     labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4', 'Label 5',  'Label 6',  'Label 7',  'Label 8',  'Label 9', 'Label 10'],
     datasets: [
         {
             label: 'Line 1',
-            data: [10, 20, 15, 25, 30, 10, 20, 15, 25, 30],
+            data: [test, 20, 15, 25, 30, 10, 20, 15, 25, 30],
             borderColor: 'rgb(75, 192, 192)',
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderWidth: 1
