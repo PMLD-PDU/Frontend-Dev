@@ -112,14 +112,16 @@
             <div class="flex flex-row">
               <div class="flex flex-row py-2 align-middle font-bold text-base">
                 <p class="text-black ms-4">Bit depth</p>
-                <p class="text-pdu-orange ms-1">390.38 m</p>
+                <p class="text-pdu-orange ms-1" id="bit_depth_sidebar">390.38 m</p>
+                <p class="text-pdu-orange ms-1">m</p>
               </div> 
             </div>
 
             <div class="flex flex-col">
               <div class="flex flex-row py-2 align-middle font-bold text-base">
                 <p class="text-black ms-4">Drill Depth</p>
-                <p class="text-pdu-orange ms-1">390.38 m</p>
+                <p class="text-pdu-orange ms-1" id="drill_depth_sidebar">390.38 m</p>
+                <p class="text-pdu-orange ms-1">m</p>
               </div> 
             </div>
 
@@ -228,8 +230,10 @@
               <img class="px-3 py-2" src="img_logo.png" alt="">
               <div class="flex flex-col py-2 text-2xl justify-center">
                 <p class="font-medium">Bit Depth</p>
-                <p class="text-pdu-orange font-bold" id="bit_depth"></p>
-                
+                <div class="flex flex-row space-x-1">
+                  <p class="text-pdu-orange font-bold" id="bit_depth"></p>
+                  <p class="text-pdu-orange font-bold">m</p>
+                </div>
               </div> 
               </div>
           </div>
@@ -238,35 +242,41 @@
             <h2 class="text-pdu-orange text-xl font-sans font-extrabold">Tank Volume</h2>
             <div class="flex flex-col w-full bg-white rounded-xl shadow-md shadow-black/25 divide-y">
               <div class="flex flex-row">
-              <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
-              <div class="flex flex-col py-2 align-middle font-bold text-base">
-                <p>Tank Total Volume</p>
-                <p class="text-pdu-orange" id="tank_vol_total">390.38 bbl</p>
-              </div> 
+                <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
+                <div class="flex flex-col py-2 align-middle font-bold text-base">
+                  <p>Tank Total Volume</p>
+                  <div class="flex flex-row space-x-1">
+                    <p class="text-pdu-orange" id="tank_vol_total">N/A</p>
+                    <p class="text-pdu-orange">m3</p>
+                  </div>
+                </div> 
               </div>
 
               <div class="flex flex-row">
-              <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
-              <div class="flex flex-col py-2 align-middle font-bold text-base">
-                <p>SCFM</p>
-                <p class="text-pdu-orange" id="tank_scfm">66.93 bbl</p>
-              </div> 
+                <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
+                <div class="flex flex-col py-2 align-middle font-bold text-base">
+                  <p>SCFM</p>
+                  <div class="flex flex-row space-x-1">
+                    <p class="text-pdu-orange" id="tank_scfm">N/A</p>
+                    <p class="text-pdu-orange">bbl</p>
+                  </div>
+                </div> 
               </div>
 
               <div class="flex flex-row">
-              <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
-              <div class="flex flex-col py-2 align-middle font-bold text-base">
-                <p>Mud Condition In</p>
-                <p class="text-pdu-orange" id="tank_mud_cond_in">26.05 bbl</p>
-              </div> 
+                <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
+                <div class="flex flex-col py-2 align-middle font-bold text-base">
+                  <p>Mud Condition In</p>
+                  <p class="text-pdu-orange" id="tank_mud_cond_in">26.05 bbl</p>
+                </div> 
               </div>
 
               <div class="flex flex-row">
-              <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
-              <div class="flex flex-col py-2 align-middle font-bold text-base">
-                <p>Mud Condition Out</p>
-                <p class="text-pdu-orange" id="tank_mud_cond_out">165.73 bbl</p>
-              </div> 
+                <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
+                <div class="flex flex-col py-2 align-middle font-bold text-base">
+                  <p>Mud Condition Out</p>
+                  <p class="text-pdu-orange" id="tank_mud_cond_out">165.73 bbl</p>
+                </div> 
               </div>
             </div>
           </div>
@@ -274,36 +284,36 @@
           <div class="flex flex-col w-full h-fit space-y-6">
             <h2 class="text-pdu-orange text-xl font-sans font-extrabold">SPM</h2>
             <div class="flex flex-col w-full bg-white rounded-xl shadow-md shadow-black/25 divide-y">
-            <div class="flex flex-row">
-              <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
-              <div class="flex flex-col py-2 align-middle font-bold text-base">
-                <p>SPM Total</p>
-                <p class="text-pdu-orange" id="spm_total">0</p>
-              </div> 
+              <div class="flex flex-row">
+                <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
+                <div class="flex flex-col py-2 align-middle font-bold text-base">
+                  <p>SPM Total</p>
+                  <p class="text-pdu-orange" id="spm_total">0</p>
+                </div> 
               </div>
 
               <div class="flex flex-row">
-              <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
-              <div class="flex flex-col py-2 align-middle font-bold text-base">
-                <p>Surpress</p>
-                <p class="text-pdu-orange" id="spm_surpress">0</p>
-              </div> 
+                <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
+                <div class="flex flex-col py-2 align-middle font-bold text-base">
+                  <p>Surpress</p>
+                  <p class="text-pdu-orange" id="spm_surpress">0</p>
+                </div> 
               </div>
 
               <div class="flex flex-row">
-              <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
-              <div class="flex flex-col py-2 align-middle font-bold text-base">
-                <p>Mud Flow In</p>
-                <p class="text-pdu-orange" id="spm_mud_flow_in">0</p>
-              </div> 
+                <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
+                <div class="flex flex-col py-2 align-middle font-bold text-base">
+                  <p>Mud Flow In</p>
+                  <p class="text-pdu-orange" id="spm_mud_flow_in">0</p>
+                </div> 
               </div>
 
               <div class="flex flex-row">
-              <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
-              <div class="flex flex-col py-2 align-middle font-bold text-base">
-                <p>CO2</p>
-                <p class="text-pdu-orange" id="spm_4">0</p>
-              </div> 
+                <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
+                <div class="flex flex-col py-2 align-middle font-bold text-base">
+                  <p>CO2</p>
+                  <p class="text-pdu-orange" id="spm_4">0</p>
+                </div> 
               </div>
             </div>
           </div>
@@ -505,18 +515,18 @@
         <div id="graph_container" class="flex flex-col w-full space-y-5">
           <div class="flex flex-row w-full space-x-5">
             <div class="w-full bg-white rounded-xl shadow-md shadow-black/25">
-              <canvas id="chart1" class="m-2" height="750"></canvas>
+              <canvas id="chart1" class="m-2" height="600"></canvas>
             </div>
             <div class="w-full bg-white rounded-xl shadow-md shadow-black/25">
-              <canvas id="chart2" class="m-2" height="750"></canvas>
+              <canvas id="chart2" class="m-2" height="600"></canvas>
             </div>
           </div>
           <div class="flex flex-row w-full jus space-x-5">
             <div class="w-full bg-white rounded-xl shadow-md shadow-black/25">
-              <canvas id="chart3" class="m-2" height="750"></canvas>
+              <canvas id="chart3" class="m-2" height="600"></canvas>
             </div>
             <div class="w-full bg-white rounded-xl shadow-md shadow-black/25">
-              <canvas id="chart4" class="m-2" height="750"></canvas>
+              <canvas id="chart4" class="m-2" height="600"></canvas>
             </div>
           </div>
         </div>
