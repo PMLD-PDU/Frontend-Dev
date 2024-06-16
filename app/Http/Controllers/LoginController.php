@@ -150,6 +150,6 @@ class LoginController extends Controller
             echo 'Terjadi kesalahan: ' . $response_well->getStatusCode();
         }
         
-        return view('/well', compact('well'));
+        return view('/well', compact('well', 'company_id'));
     }
 }
