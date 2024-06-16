@@ -2,11 +2,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const wellId = document.getElementById('dashboard-container').getAttribute('data-well-id');
 
     function fetchData() {
-        fetch(`/api/dashboard-data?well_id=${wellId}`)
+        fetch(`http://127.0.0.1:8000/api/dashboard-data?well_id=${wellId}`)
             .then(response => response.json())
             .then(data => {
+                const latestData = data[data.length - 1];
+                console.log(latestData);
                 // Update DOM elements with new data
-                document.getElementById('bit_depth').innerText = data.bitdepth;
+                document.getElementById('bit_depth').innerText = latestData['bitdepth'];
                 document.getElementById('tank_vol_total').innerText = data.tankvoltot;
                 document.getElementById('tank_scfm').innerText = data.scfm;
                 document.getElementById('tank_mud_cond_in').innerText = data.mudcondin;
@@ -33,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // chart.update();
                 // chart1.data.datasets[0].data = data.chart2Data; // Update with your actual data source
                 // chart1.update();
+                
             })
             .catch(error => console.error('Error fetching data:', error));
     }

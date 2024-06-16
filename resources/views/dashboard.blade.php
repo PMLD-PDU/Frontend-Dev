@@ -228,7 +228,8 @@
               <img class="px-3 py-2" src="img_logo.png" alt="">
               <div class="flex flex-col py-2 text-2xl justify-center">
                 <p class="font-medium">Bit Depth</p>
-                <p class="text-pdu-orange font-bold" id="bit_depth">66.93 bbl</p>
+                <p class="text-pdu-orange font-bold" id="bit_depth"></p>
+                
               </div> 
               </div>
           </div>
