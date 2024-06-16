@@ -12,6 +12,10 @@ export default {
         '1.6/12': '13.3333333%',
       },
 
+      height: {
+        '72rem': '72rem',
+      },
+
       colors: {
         'pdu-orange': '#E75C33',
       },
