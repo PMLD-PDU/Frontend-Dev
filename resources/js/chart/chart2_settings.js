@@ -4,6 +4,7 @@ const value_1 = [];
 const value_2 = [];
 const value_3 = [];
 const value_4 = [];
+const value_5 = [];
 
 document.addEventListener('latestDataUpdated', function(event) {
     const datas = event.detail;
@@ -22,12 +23,14 @@ document.addEventListener('latestDataUpdated', function(event) {
         value_2.splice(0, 1);
         value_3.splice(0, 1);
         value_4.splice(0, 1);
+        value_5.splice(0, 1);
         labels.splice(0, 1);
 
         value_1.push(value['blockpos']);
         value_2.push(value['wob']);
         value_3.push(value['ropin']);
-        value_4.push(value['bvdepth']);
+        value_4.push(value['mudtempin']);
+        value_5.push(value['mudtempout']);
 
         let waktu = jam + ':' + menit + ':' + detik;
         labels.push(waktu);
@@ -41,7 +44,8 @@ document.addEventListener('latestDataUpdated', function(event) {
             value_1.push(count['blockpos']);
             value_2.push(count['wob']);
             value_3.push(count['ropin']);
-            value_4.push(count['bvdepth']);
+            value_4.push(count['mudtempin']);
+            value_5.push(count['mudtempout']);
         
             // detik
             if (detik - 10 < 0) {
@@ -103,12 +107,19 @@ const data = {
            borderWidth: 1
        },
        {
-           label: 'bvdepth',
-           data: value_4,
-           borderColor: 'rgb(195, 58, 200)',
-           backgroundColor: 'rgba(195, 58, 200, 0.2)',
-           borderWidth: 1
-       }
+          label: 'mudtempin',
+          data: value_4,
+          backgroundColor: 'rgba(255, 159, 64, 0.2)',
+          borderColor: 'rgb(255, 159, 64)',
+          borderWidth: 1
+       },
+       {
+          label: 'mudtempout',
+          data: value_5,
+          backgroundColor: 'rgba(255, 205, 86, 0.2)',
+          borderColor: 'rgb(255, 205, 86)',
+          borderWidth: 1
+        }
    ]
 };
 

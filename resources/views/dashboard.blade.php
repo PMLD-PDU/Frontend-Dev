@@ -4,6 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -35,6 +36,8 @@
     @vite('resources/js/app.js')
     @vite('resources/js/sidebar.js')
     @vite('resources/js/dashboard.js')
+    @vite('resources/js/logout.js')
+    @vite('resources/js/notification.js')
     @vite('resources/js/chart/chart1_settings.js')
     @vite('resources/js/chart/chart2_settings.js')
     @vite('resources/js/chart/chart3_settings.js')
@@ -57,23 +60,23 @@
           <ul class="flex flex-row space-x-4">
             <li class="flex flex-col ml-4">
               <p class="text-black font-bold px-2 min-w-24">Company Name</p>
-              <p class="text-orange font-bold px-2 min-w-24" id="companyName">MCG</p>
+              <p class="text-orange font-bold px-2 min-w-24" id="companyName">N/A</p>
             </li>
             <li class="flex flex-col">
               <p class="text-black font-bold px-2 min-w-24">Well Name</p>
-              <p class="text-orange font-bold px-2 min-w-24" id="wellName">IJN 9-1</p>
+              <p class="text-orange font-bold px-2 min-w-24" id="wellName">0</p>
             </li>
             <li class="flex flex-col">
               <p class="text-black font-bold px-2 min-w-24">Rig Name</p>
-              <p class="text-orange font-bold px-2 min-w-24" id="rigName">EPI-9</p>
+              <p class="text-orange font-bold px-2 min-w-24" id="rigName">N/A</p>
             </li>
             <li class="flex flex-col">
               <p class="text-black font-bold px-2 min-w-24">Rig Activity</p>
-              <p class="text-orange font-bold px-2 min-w-24" id="rigActivity">Tripping Out</p>
+              <p class="text-orange font-bold px-2 min-w-24" id="rigActivity">N/A</p>
             </li>
             <li class="flex items-center bg-abu rounded-lg">
-              <p class="text-white font-bold pl-3 pr-1" id="date">23-08-2023</p>
-              <p class="text-orange font-bold pr-3" id="time">16:09:20</p>
+              <p class="text-white font-bold pl-3 pr-1" id="date">N/A</p>
+              <p class="text-orange font-bold pr-3" id="time">N/A</p>
             </li>                    
           </ul>
         </div>    
@@ -267,7 +270,10 @@
                 <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
                 <div class="flex flex-col py-2 align-middle font-bold text-base">
                   <p>Mud Condition In</p>
-                  <p class="text-pdu-orange" id="tank_mud_cond_in">26.05 bbl</p>
+                  <div class="flex flex-row space-x-1">
+                    <p class="text-pdu-orange" id="tank_mud_cond_in">N/A</p>
+                    <p class="text-pdu-orange">bbl</p>
+                  </div>
                 </div> 
               </div>
 
@@ -275,7 +281,10 @@
                 <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
                 <div class="flex flex-col py-2 align-middle font-bold text-base">
                   <p>Mud Condition Out</p>
-                  <p class="text-pdu-orange" id="tank_mud_cond_out">165.73 bbl</p>
+                  <div class="flex flex-row space-x-1">
+                    <p class="text-pdu-orange" id="tank_mud_cond_out">N/A</p>
+                    <p class="text-pdu-orange">bbl</p>
+                  </div>
                 </div> 
               </div>
             </div>
@@ -288,7 +297,7 @@
                 <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
                 <div class="flex flex-col py-2 align-middle font-bold text-base">
                   <p>SPM Total</p>
-                  <p class="text-pdu-orange" id="spm_total">0</p>
+                  <p class="text-pdu-orange" id="spm_total">N/A</p>
                 </div> 
               </div>
 
@@ -296,7 +305,7 @@
                 <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
                 <div class="flex flex-col py-2 align-middle font-bold text-base">
                   <p>Surpress</p>
-                  <p class="text-pdu-orange" id="spm_surpress">0</p>
+                  <p class="text-pdu-orange" id="spm_surpress">N/A</p>
                 </div> 
               </div>
 
@@ -304,7 +313,7 @@
                 <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
                 <div class="flex flex-col py-2 align-middle font-bold text-base">
                   <p>Mud Flow In</p>
-                  <p class="text-pdu-orange" id="spm_mud_flow_in">0</p>
+                  <p class="text-pdu-orange" id="spm_mud_flow_in">N/A</p>
                 </div> 
               </div>
 
@@ -312,7 +321,7 @@
                 <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
                 <div class="flex flex-col py-2 align-middle font-bold text-base">
                   <p>CO2</p>
-                  <p class="text-pdu-orange" id="spm_4">0</p>
+                  <p class="text-pdu-orange" id="spm_4">N/A</p>
                 </div> 
               </div>
             </div>
@@ -340,7 +349,7 @@
                       <div class="flex-col min-w-0 flex-auto items-center">
                         <p class="text-base truncate font-bold" style="color: #4700DE;">TORQ</p>
                         <p class="mt-1 truncate font-bold text-base text-gray-300">
-                          <span id="TORQVal" style="color: #4700DE;">0</span> / <span>30</span>
+                          <span id="TORQVal" style="color: #4700DE;">N/A</span> / <span>30</span>
                         </p>
                       </div>
                     </div>
@@ -353,7 +362,7 @@
                       <div class="flex-col min-w-0 flex-auto items-center">
                         <p class="text-base truncate font-bold" style="color: #60D96C;">Block Position</p>
                         <p class="mt-1 truncate font-bold text-base text-gray-300">
-                          <span id="BlockVal" style="color: #60D96C;">15.16</span> / <span>35</span>
+                          <span id="BlockVal" style="color: #60D96C;">N/A</span> / <span>35</span>
                         </p>
                       </div>
                     </div>
@@ -366,7 +375,7 @@
                       <div class="flex-col min-w-0 flex-auto items-center">
                         <p class="text-base truncate font-bold" style="color: #C9A857;">ROPi</p>
                         <p class="mt-1 truncate font-bold text-base text-gray-300">
-                          <span id="ROPiVal" style="color: #C9A857;">0</span> / <span>100</span>
+                          <span id="ROPiVal" style="color: #C9A857;">N/A</span> / <span>100</span>
                         </p>
                       </div>
                     </div>
@@ -385,7 +394,7 @@
                       <div class="flex-col min-w-0 flex-auto items-center">
                         <p class="text-base truncate font-bold" style="color: #727CAB;">Flow Out</p>
                         <p class="mt-1 truncate font-bold text-base text-gray-300">
-                          <span id="FlowOutVal" style="color: #727CAB;">0</span> / <span>100</span>
+                          <span id="FlowOutVal" style="color: #727CAB;">N/A</span> / <span>100</span>
                         </p>
                       </div>
                     </div>
@@ -398,7 +407,7 @@
                       <div class="flex-col min-w-0 flex-auto items-center">
                         <p class="text-base truncate font-bold" style="color: #C33AC8;">Backside Flow</p>
                         <p class="mt-1 truncate font-bold text-base text-gray-300">
-                          <span id="BacksideVal" style="color: #C33AC8;">0</span> / <span>1200</span>
+                          <span id="BacksideVal" style="color: #C33AC8;">N/A</span> / <span>1200</span>
                         </p>
                       </div>
                     </div>
@@ -411,7 +420,7 @@
                       <div class="flex-col min-w-0 flex-auto items-center">
                         <p class="text-base truncate font-bold" style="color: #666E40;">Pit Volume Act</p>
                         <p class="mt-1 truncate font-bold text-base text-gray-300">
-                          <span id="PitVolumeVal" style="color: #666E40;">817.59</span> / <span>1000</span>
+                          <span id="PitVolumeVal" style="color: #666E40;">N/A</span> / <span>1000</span>
                         </p>
                       </div>
                     </div>
@@ -430,7 +439,7 @@
                     <div class="flex-col min-w-0 flex-auto items-center">
                       <p class="text-base truncate font-bold" style="color: #B10303;">MW Out</p>
                       <p class="mt-1 truncate font-bold text-base text-gray-300">
-                        <span id="MWOutVal" style="color: #B10303;">8.34</span> / <span>10</span>
+                        <span id="MWOutVal" style="color: #B10303;">N/A</span> / <span>10</span>
                       </p>
                     </div>
                   </div>
@@ -443,7 +452,7 @@
                     <div class="flex-col min-w-0 flex-auto items-center">
                       <p class="text-base truncate font-bold" style="color: #4188DC;">Temp Out</p>
                       <p class="mt-1 truncate font-bold text-base text-gray-300">
-                        <span id="TempOutVal" style="color: #4188DC;">25</span> / <span>100</span>
+                        <span id="TempOutVal" style="color: #4188DC;">N/A</span> / <span>100</span>
                       </p>
                     </div>
                   </div>
@@ -456,7 +465,7 @@
                     <div class="flex-col min-w-0 flex-auto items-center">
                       <p class="text-base truncate font-bold" style="color: #9D631E;">Temp In</p>
                       <p class="mt-1 truncate font-bold text-base text-gray-300">
-                        <span id="TempInVal" style="color: #9D631E;">23.53</span> / <span>100</span>
+                        <span id="TempInVal" style="color: #9D631E;">N/A</span> / <span>100</span>
                       </p>
                     </div>
                   </div>
@@ -475,7 +484,7 @@
                     <div class="flex-col min-w-0 flex-auto items-center">
                       <p class="text-base truncate font-bold" style="color: #771960;">H2S Shaker</p>
                       <p class="mt-1 truncate font-bold text-base text-gray-300">
-                        <span id="H2SShakerVal" style="color: #771960;">0</span> / <span>200</span>
+                        <span id="H2SShakerVal" style="color: #771960;">N/A</span> / <span>200</span>
                       </p>
                     </div>
                   </div>
@@ -488,7 +497,7 @@
                     <div class="flex-col min-w-0 flex-auto items-center">
                       <p class="text-base truncate font-bold" style="color: #3F2E97;">H2S Cellar</p>
                       <p class="mt-1 truncate font-bold text-base text-gray-300">
-                        <span id="H2SCellarVal" style="color: #3F2E97;">0</span> / <span>20</span>
+                        <span id="H2SCellarVal" style="color: #3F2E97;">N/A</span> / <span>20</span>
                       </p>
                     </div>
                   </div>
@@ -501,7 +510,7 @@
                     <div class="flex-col min-w-0 flex-auto items-center">
                       <p class="text-base truncate font-bold" style="color: #4AC599;">H2S Mud Pond</p>
                       <p class="mt-1 truncate font-bold text-base text-gray-300">
-                        <span id="H2SMudPondVal" style="color: #4AC599;">0</span> / <span>200</span>
+                        <span id="H2SMudPondVal" style="color: #4AC599;">N/A</span> / <span>200</span>
                       </p>
                     </div>
                   </div>
@@ -539,46 +548,12 @@
       {{-- REPORT SECTION --}}
         <div class="flex flex-col w-2/12 space-y-6">
           <h2 class="text-pdu-orange text-2xl font-sans font-extrabold">Report</h2>
-          <div class="w-full bg-slate-300 rounded-xl shadow-md shadow-black/25 h-72">
+          <div class="w-full bg-slate-300 rounded-xl shadow-md shadow-black/25 h-fit">
             <div class="flex flex-col w-full h-fit space-y-6">
-              <div class="flex flex-col w-full bg-white rounded-xl shadow-md shadow-black/25 divide-y">     
-                {{-- Repeatable Notification --}}
-                <div class="flex flex-row bg-red-500 rounded-t-xl">
-                  <i class="fa-solid fa-exclamation-triangle fa-lg p-2.5 text-white content-center"></i>
-                  <div class="flex flex-col p-2 align-middle font-bold text-xs text-white">
-                    <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
-                    <p class="text-pdu-white">2024-03-19 15:27:16</p>
-                  </div> 
-                </div>
-                <div class="flex flex-row">
-                  <i class="fa-solid fa-circle fa-2xs p-3 text-pdu-orange content-center"></i>
-                  <div class="flex flex-col p-2 align-middle font-bold text-xs">
-                    <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
-                    <p class="text-pdu-orange">2024-03-19 15:27:16</p>
-                  </div> 
-                </div>
-                <div class="flex flex-row">
-                  <i class="fa-solid fa-circle fa-2xs p-3 text-pdu-orange content-center"></i>
-                  <div class="flex flex-col p-2 align-middle font-bold text-xs">
-                    <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
-                    <p class="text-pdu-orange">2024-03-19 15:27:16</p>
-                  </div> 
-                </div>
-                <div class="flex flex-row">
-                  <i class="fa-solid fa-circle fa-2xs p-3 text-pdu-orange content-center"></i>
-                  <div class="flex flex-col p-2 align-middle font-bold text-xs">
-                    <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
-                    <p class="text-pdu-orange">2024-03-19 15:27:16</p>
-                  </div> 
-                </div>
-                <div class="flex flex-row">
-                  <i class="fa-solid fa-circle fa-2xs p-3 text-pdu-orange content-center"></i>
-                  <div class="flex flex-col p-2 align-middle font-bold text-xs">
-                    <p>PUMP BACK SIDE F/ COOLING TOWER 380 GPM</p>
-                    <p class="text-pdu-orange">2024-03-19 15:27:16</p>
-                  </div> 
-                </div>
-              </div>
+              <div id="notification-container" class="flex flex-col w-full bg-white rounded-xl shadow-md shadow-black/25 divide-y">     
+
+              </div> 
+              {{-- dynamic notif --}}
             </div>
           </div>
         </div>
@@ -589,38 +564,5 @@
     <div id="company-data" data-company-id="{{ $company_id }}">
 
     </div>
-
-    <!-- JS -->
-    <script>
-      document.getElementById("dropdownButton").addEventListener("click", function(event) {
-        event.stopPropagation(); // Prevent the event from bubbling up to document
-        var menu = document.getElementById("dropdownMenu");
-        if (menu.style.display === "none" || menu.style.display === "") {
-          menu.style.display = "block";
-          menu.classList.add('opacity-100', 'scale-100');
-          menu.classList.remove('opacity-0', 'scale-95');
-        } else {
-          menu.style.display = "none";
-          menu.classList.add('opacity-0', 'scale-95');
-          menu.classList.remove('opacity-100', 'scale-100');
-        }
-      });
-
-      // Close the dropdown when clicking outside of it
-      document.addEventListener("click", function(event) {
-        var menu = document.getElementById("dropdownMenu");
-        var button = document.getElementById("dropdownButton");
-        if (!button.contains(event.target) && !menu.contains(event.target)) {
-          menu.style.display = "none";
-          menu.classList.add('opacity-0', 'scale-95');
-          menu.classList.remove('opacity-100', 'scale-100');
-        }
-      });
-    </script>
-
-  <script src="{{ $chart->cdn() }}"></script>
-  {{ $chart->script() }}
-  {{ $chart1->script() }}
-
   </body>
 </html>

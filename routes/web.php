@@ -31,6 +31,9 @@ Route::get('/mainscreen/well', [LoginController::class, 'well'])->name('getWell'
 // API route for fetching sensor data
 Route::get('/api/dashboard-data', [UserController::class, 'sensor'])->name('api.dashboard-data');
 Route::get('/sensor-by-company', [UserController::class, 'sensorByCompany']);
+Route::get('/api/notification', [UserController::class, 'notification']);
+Route::patch('/api/well/{wellId}/notification/{id}/seen', [UserController::class, 'markAsSeen']);
+
 
 //logout
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

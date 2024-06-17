@@ -4,6 +4,7 @@ const value_1 = [];
 const value_2 = [];
 const value_3 = [];
 const value_4 = [];
+const value_5 = [];
 
 document.addEventListener('latestDataUpdated', function(event) {
     const datas = event.detail;
@@ -22,12 +23,14 @@ document.addEventListener('latestDataUpdated', function(event) {
         value_2.splice(0, 1);
         value_3.splice(0, 1);
         value_4.splice(0, 1);
+        value_5.splice(0, 1);
         labels.splice(0, 1);
 
         value_1.push(value['h2s_1']);
         value_2.push(value['mudflowoutp']);
-        value_3.push(value['totspm']);
+        value_3.push(value['scfm']);
         value_4.push(value['sppress']);
+        value_5.push(value['co2_1']);
 
         let waktu = jam + ':' + menit + ':' + detik;
         labels.push(waktu);
@@ -40,8 +43,9 @@ document.addEventListener('latestDataUpdated', function(event) {
 
             value_1.push(count['h2s_1']);
             value_2.push(count['mudflowoutp']);
-            value_3.push(count['totspm']);
+            value_3.push(count['scfm']);
             value_4.push(count['sppress']);
+            value_5.push(count['co2_1']);
         
             // detik
             if (detik - 10 < 0) {
@@ -82,7 +86,7 @@ const data = {
    labels: labels,
    datasets: [
        {
-           label: 'h2s_1',
+           label: 'H2S',
            data: value_1,
            borderColor: 'rgb(75, 192, 192)',
            backgroundColor: 'rgba(75, 192, 192, 0.2)',
@@ -108,7 +112,14 @@ const data = {
            borderColor: 'rgb(195, 58, 200)',
            backgroundColor: 'rgba(195, 58, 200, 0.2)',
            borderWidth: 1
-       }
+       },
+       {
+            label: 'CO2',
+            data: value_5,
+            backgroundColor: 'rgba(255, 140, 0, 0.2)',
+            borderColor: 'rgb(255, 140, 0)',
+            borderWidth: 1
+        }
    ]
 };
 

@@ -1,9 +1,10 @@
- // Sample data for demonstration
 const labels = [];
 const value_1 = [];
 const value_2 = [];
 const value_3 = [];
 const value_4 = [];
+const value_5 = [];
+const value_6 = [];
 
 document.addEventListener('latestDataUpdated', function(event) {
     const datas = event.detail;
@@ -22,12 +23,16 @@ document.addEventListener('latestDataUpdated', function(event) {
         value_2.splice(0, 1);
         value_3.splice(0, 1);
         value_4.splice(0, 1);
+        value_5.splice(0, 1);
+        value_6.splice(0, 1);
         labels.splice(0, 1);
 
         value_1.push(value['bitdepth']);
-        value_2.push(value['scfm']);
+        value_2.push(value['totspm']);
         value_3.push(value['mudcondin']);
         value_4.push(value['mudcondout']);
+        value_5.push(value['tankvoltot']);
+        value_6.push(value['rpm']);
 
         let waktu = jam + ':' + menit + ':' + detik;
         labels.push(waktu);
@@ -39,9 +44,11 @@ document.addEventListener('latestDataUpdated', function(event) {
             let count = datas[datas.length - i];
 
             value_1.push(count['bitdepth']);
-            value_2.push(count['scfm']);
+            value_2.push(count['totspm']);
             value_3.push(count['mudcondin']);
             value_4.push(count['mudcondout']);
+            value_5.push(count['tankvoltot']);
+            value_6.push(count['rpm']);
         
             // detik
             if (detik - 10 < 0) {
@@ -89,7 +96,7 @@ const data = {
            borderWidth: 1
        },
        {
-           label: 'scfm',
+           label: 'SPM Total',
            data: value_2,
            borderColor: 'rgb(255, 99, 132)',
            backgroundColor: 'rgba(255, 99, 132, 0.2)',
@@ -108,7 +115,21 @@ const data = {
            borderColor: 'rgb(195, 58, 200)',
            backgroundColor: 'rgba(195, 58, 200, 0.2)',
            borderWidth: 1
-       }
+       },
+       {
+          label: 'tankvoltot',
+          data: value_5,
+          backgroundColor: 'rgba(255, 140, 0, 0.2)',
+          borderColor: 'rgb(255, 140, 0)',
+          borderWidth: 1
+        },
+        {
+          label: 'rpm',
+          data: value_6,
+          backgroundColor: 'rgba(0, 255, 255, 0.2)',
+          borderColor: 'rgb(0, 255, 255)',
+          borderWidth: 1
+        }
    ]
 };
 
@@ -123,7 +144,7 @@ const options = {
         },
         title: {
             display: true,
-            text: 'Chart.js Line Chart'
+            text: 'Graph 1'
         }
     },
     maintainAspectRatio: false,

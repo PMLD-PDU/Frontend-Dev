@@ -36,14 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('H2SCellarVal').innerText = latestData['co2_1'] || "N/A";
                 document.getElementById('H2SMudPondVal').innerText = latestData['gas'] || "N/A";
 
-                // Navbar
-                document.getElementById('wellName').innerText = ((latestData['well'])['name'])|| "N/A";
-
-                // // Update charts if necessary
-                // chart.data.datasets[0].data = data.chart1Data; // Update with your actual data source
-                // chart.update();
-                // chart1.data.datasets[0].data = data.chart2Data; // Update with your actual data source
-                // chart1.update();
+                document.getElementById('wellName').innerText = ((latestData['well'])['name'])|| "N/A"
                 
             })
             .catch(error => console.error('Error fetching data:', error));
@@ -84,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     setInterval(displayCurrentDateTime, 1000);
-    setInterval(fetchData, 10000);
+    setInterval(fetchData, 15000);
 
     fetchData();
     fetchCompany();

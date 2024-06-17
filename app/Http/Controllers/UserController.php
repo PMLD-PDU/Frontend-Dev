@@ -13,7 +13,7 @@ class UserController extends Controller
     public function index(MonthlyUsersChart $chart, chart1 $chart1, Request $request)
     {
         $company_id = $request->company_id;
-        $well_id = $request->well_id; // Get well_id from the request
+        $well_id = $request->well_id;
         return view('dashboard', ['chart' => $chart->build(), 'chart1' => $chart1->build(), 'well_id' => $well_id, 'company_id' => $company_id]);
     }
 
@@ -82,5 +82,65 @@ class UserController extends Controller
             return response()->json(['message' => 'Error: ' . $e->getMessage()], 500);
         }
     }
+
+    public function notification(Request $request)
+    {
+        $client = new Client();
+        $well_id = $request->well_id;
+
+        if (empty($well_id)) {
+            return response()->json(['message' => 'Well ID is missing'], 400);
+        }
+
+        $headers = [
+            'Authorization' => 'Bearer ' . session('access_token'),
+            'Accept' => 'application/json',
+        ];
+
+        $url = sprintf('http://27.112.79.127/api/well/%s/notification', $well_id);
+
+        try {
+            $response_notification = $client->get($url, [
+                'headers' => $headers,
+            ]);
+
+            if ($response_notification->getStatusCode() === 200) {
+                $notification = json_decode($response_notification->getBody()->getContents())->data;
+                Log::info('Notification Data: ', (array) $notification);
+                return response()->json(['data' => $notification]);
+            } else {
+                return response()->json(['message' => 'Error: ' . $response_notification->getStatusCode()], $response_notification->getStatusCode());
+            }
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error: ' . $e->getMessage()], 500);
+        }
+    }
+
+    public function markAsSeen($wellId, $notificationId)
+    {
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer ' . session('access_token'),
+            'Accept' => 'application/json',
+        ];
+
+        $url = sprintf('http://27.112.79.127/api/well/%s/notification/%s/seen', $wellId, $notificationId);
+
+        try {
+            $response = $client->patch($url, [
+                'headers' => $headers,
+            ]);
+
+            if ($response->getStatusCode() === 200) {
+                $data = json_decode($response->getBody()->getContents())->data;
+                return response()->json(['data' => $data]);
+            } else {
+                return response()->json(['message' => 'Error: ' . $response->getStatusCode()], $response->getStatusCode());
+            }
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error: ' . $e->getMessage()], 500);
+        }
+    }
+
 }
 
