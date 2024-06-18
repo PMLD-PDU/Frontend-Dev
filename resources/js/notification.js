@@ -64,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
     return notificationElement;
   }
 
-
   window.markAsSeen = function(notificationId, notificationData, buttonElement) {
     fetch(`/api/well/${wellId}/notification/${notificationId}/seen`, {
       method: 'PATCH',

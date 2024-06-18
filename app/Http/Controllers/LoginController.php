@@ -8,7 +8,8 @@ use GuzzleHttp\Client;
 
 class LoginController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('login');
     }
 
@@ -34,7 +35,6 @@ class LoginController extends Controller
         if ($response->ok()) {
             // Parse response JSON
             $responseData = json_decode($response->getBody()->getContents());
-            // dd($responseData->data->token);
 
             // Cek apakah login berhasil
             if (isset($responseData->data->token)) {
@@ -42,84 +42,63 @@ class LoginController extends Controller
                 session()->put('access_token', $responseData->data->token);
                 $token = session('access_token');
 
-                // Kembalikan respons sukses
-                // return response()->json([
-                //     'message' => 'Login berhasil',
-                //     'token' => $token
-                // ]);
                 return redirect('/mainscreen');
             } else {
-                // Kembalikan respons error
-                // return response()->json([
-                //     'message' => 'Login gagal',
-                //     'errors' => $responseData->errors,
-                // ], 401);
                 return view('login');
             }
         } else {
-            // Kembalikan respons error generik
-            // return response()->json([
-            //     'message' => 'Terjadi kesalahan saat login',
-            // ], 500);
-
             return view('login');
         }
     }
 
-    public function mainscreen(){
+    public function mainscreen()
+    {
         $client = new Client();
 
         $headers = [
             'Authorization' => 'Bearer ' . session('access_token'),
-            'Accept' => 'application/json', 
+            'Accept' => 'application/json',
         ];
 
         $response_company = $client->get('http://27.112.79.127/api/company', [
             'headers' => $headers,
         ]);
-        // dd($response->getBody()->getContents());
 
         if ($response_company->getStatusCode() === 200) {
-            $data = json_decode($response_company->getBody()->getContents()) -> data;
-            // Proses data yang diperoleh
-            // dd($data);
+            $data = json_decode($response_company->getBody()->getContents())->data;
         } else {
             // Handle error response
             echo 'Terjadi kesalahan: ' . $response_company->getStatusCode();
         }
 
-        
         return view('/mainscreen', compact('data'));
-
     }
-    public function place(Request $request){
+    public function place(Request $request)
+    {
         $client = new Client();
         $company_id = $request->company_id;
 
         $headers = [
             'Authorization' => 'Bearer ' . session('access_token'),
-            'Accept' => 'application/json', 
+            'Accept' => 'application/json',
         ];
 
-        $response_place = $client->get('http://27.112.79.127/api/company/'.$company_id.'/place', [
+        $response_place = $client->get('http://27.112.79.127/api/company/' . $company_id . '/place', [
             'headers' => $headers,
         ]);
-        // dd($response->getBody()->getContents());
 
         if ($response_place->getStatusCode() === 200) {
-            $place = json_decode($response_place->getBody()->getContents()) -> data;
-            // Proses data yang diperoleh
-            // dd($data);
+            $place = json_decode($response_place->getBody()->getContents())->data;
         } else {
             // Handle error response
             echo 'Terjadi kesalahan: ' . $response_place->getStatusCode();
         }
-        
-        return view('/place', compact('place', 'company_id'));
 
+        return view('/place', compact('place', 'company_id'));
     }
 
-    public function well(Request $request){
+    public function well(Request $request)
+    {
         $client = new Client();
         $company_id = $request->company_id;
         $place_id = $request->place_id;
@@ -131,7 +110,7 @@ class LoginController extends Controller
 
         $headers = [
             'Authorization' => 'Bearer ' . session('access_token'),
-            'Accept' => 'application/json', 
+            'Accept' => 'application/json',
         ];
 
         $url = sprintf('http://27.112.79.127/api/company/%s/place/%s/well', $company_id, $place_id);
@@ -139,17 +118,14 @@ class LoginController extends Controller
         $response_well = $client->get($url, [
             'headers' => $headers,
         ]);
-        // dd($response->getBody()->getContents());
 
         if ($response_well->getStatusCode() === 200) {
-            $well = json_decode($response_well->getBody()->getContents()) -> data;
-            // Proses data yang diperoleh
-            // dd($data);
+            $well = json_decode($response_well->getBody()->getContents())->data;
         } else {
             // Handle error response
             echo 'Terjadi kesalahan: ' . $response_well->getStatusCode();
         }
-        
+
         return view('/well', compact('well', 'company_id'));
     }
 }

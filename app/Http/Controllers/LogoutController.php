@@ -16,5 +16,4 @@ class LogoutController extends Controller
         // Redirect ke halaman login atau halaman lain setelah logout
         return redirect('/login');
     }
-
 }

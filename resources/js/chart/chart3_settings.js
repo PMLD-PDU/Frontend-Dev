@@ -17,7 +17,6 @@ document.addEventListener('latestDataUpdated', function(event) {
     const value = datas[datas.length - 1];
     // console.log(value);
     
-    
     if (value_1.length == 10) {
         value_1.splice(0, 1);
         value_3.splice(0, 1);
@@ -124,7 +123,6 @@ const data = {
    ]
 };
 
-
 // Options for chart customization
 const options = {
     indexAxis: 'y',
@@ -148,5 +146,3 @@ const myChart = new Chart(ctx, {
     data: data,
     options: options
 });
-
- 

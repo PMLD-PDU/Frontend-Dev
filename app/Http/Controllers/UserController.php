@@ -28,7 +28,7 @@ class UserController extends Controller
 
         $headers = [
             'Authorization' => 'Bearer ' . session('access_token'),
-            'Accept' => 'application/json', 
+            'Accept' => 'application/json',
         ];
 
         $url = sprintf('http://27.112.79.127/api/well/%s', $well_id);
@@ -61,7 +61,7 @@ class UserController extends Controller
 
         $headers = [
             'Authorization' => 'Bearer ' . session('access_token'),
-            'Accept' => 'application/json', 
+            'Accept' => 'application/json',
         ];
 
         $url = sprintf('http://27.112.79.127/api/company/%s', $company_id);
@@ -141,6 +141,4 @@ class UserController extends Controller
             return response()->json(['message' => 'Error: ' . $e->getMessage()], 500);
         }
     }
-
 }
-

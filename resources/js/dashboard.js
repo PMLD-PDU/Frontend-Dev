@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('bit_depth').innerText = latestData['bitdepth'] || "N/A";
                 document.getElementById('bit_depth_sidebar').innerText = latestData['bitdepth'] || "N/A";
                 document.getElementById('drill_depth_sidebar').innerText = latestData['bitdepth'] || "N/A";
+                document.getElementById('hkldp').innerText = latestData['hkldp'] || "N/A";
                 document.getElementById('tank_vol_total').innerText = latestData['tankvoltot'] || "N/A";
                 document.getElementById('tank_scfm').innerText = latestData['scfm']  || "N/A";
                 document.getElementById('tank_mud_cond_in').innerText = latestData['mudcondin'] || "N/A";
@@ -55,8 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const companyId = document.getElementById('company-data').getAttribute('data-company-id');
         
         fetchCompanyData(companyId);
-    }
-    
+    }    
 
     function displayCurrentDateTime() {
         const now = new Date();
