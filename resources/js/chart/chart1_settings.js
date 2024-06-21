@@ -42,12 +42,12 @@ document.addEventListener('latestDataUpdated', function(event) {
 
             let count = datas[datas.length - i];
 
-            value_1.push(count['bitdepth']);
-            value_2.push(count['totspm']);
-            value_3.push(count['mudcondin']);
-            value_4.push(count['mudcondout']);
-            value_5.push(count['tankvoltot']);
-            value_6.push(count['rpm']);
+            value_1.unshift(count['bitdepth']);
+            value_2.unshift(count['totspm']);
+            value_3.unshift(count['mudcondin']);
+            value_4.unshift(count['mudcondout']);
+            value_5.unshift(count['tankvoltot']);
+            value_6.unshift(count['rpm']);
         
             // detik
             if (detik - 10 < 0) {
@@ -76,7 +76,7 @@ document.addEventListener('latestDataUpdated', function(event) {
             }
             
             let waktu = jam + ':' + menit + ':' + detik;
-            labels.push(waktu);
+            labels.unshift(waktu);
         }
     }
 

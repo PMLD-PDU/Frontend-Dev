@@ -1,4 +1,4 @@
-import './bootstrap';
+// import './bootstrap';
 
 Echo.channel('PDU_Dashboard')
     .listen('DataUpdated', (e) => {

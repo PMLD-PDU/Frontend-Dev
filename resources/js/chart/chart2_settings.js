@@ -40,11 +40,11 @@ document.addEventListener('latestDataUpdated', function(event) {
 
             let count = datas[datas.length - i];
 
-            value_1.push(count['blockpos']);
-            value_2.push(count['wob']);
-            value_3.push(count['ropin']);
-            value_4.push(count['mudtempin']);
-            value_5.push(count['mudtempout']);
+            value_1.unshift(count['blockpos']);
+            value_2.unshift(count['wob']);
+            value_3.unshift(count['ropin']);
+            value_4.unshift(count['mudtempin']);
+            value_5.unshift(count['mudtempout']);
         
             // detik
             if (detik - 10 < 0) {
@@ -73,7 +73,7 @@ document.addEventListener('latestDataUpdated', function(event) {
             }
             
             let waktu = jam + ':' + menit + ':' + detik;
-            labels.push(waktu);
+            labels.unshift(waktu);
         }
     }
 

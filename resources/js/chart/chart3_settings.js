@@ -40,11 +40,11 @@ document.addEventListener('latestDataUpdated', function(event) {
 
             let count = datas[datas.length - i];
 
-            value_1.push(count['torque']);
-            value_3.push(count['hkldp']);
-            value_4.push(count['logdepth']);
-            value_5.push(count['bvdepth']);
-            value_6.push(count['ropin']);
+            value_1.unshift(count['torque']);
+            value_3.unshift(count['hkldp']);
+            value_4.unshift(count['logdepth']);
+            value_5.unshift(count['bvdepth']);
+            value_6.unshift(count['ropin']);
         
         
             // detik
@@ -74,7 +74,7 @@ document.addEventListener('latestDataUpdated', function(event) {
             }
             
             let waktu = jam + ':' + menit + ':' + detik;
-            labels.push(waktu);
+            labels.unshift(waktu);
         }
     }
 
