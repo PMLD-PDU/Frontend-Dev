@@ -512,7 +512,7 @@
                                         <div class="flex-col min-w-0 flex-auto items-center">
                                             <p class="text-base truncate font-bold text-grey">ROP</p>
                                             <p class="mt-1 truncate font-bold text-base text-gray-300">
-                                                <span id="" class="text-grey" >N/A</span> /
+                                                <span id="" class="text-grey">N/A</span> /
                                                 <span>-</span>
                                             </p>
                                         </div>
@@ -527,7 +527,7 @@
                                         <div class="flex-col min-w-0 flex-auto items-center">
                                             <p class="text-base truncate font-bold text-grey">WOB</p>
                                             <p class="mt-1 truncate font-bold text-base text-gray-300">
-                                                <span id="WOB_sensor" class="text-grey" >N/A</span> /
+                                                <span id="WOB_sensor" class="text-grey">N/A</span> /
                                                 <span>-</span>
                                             </p>
                                         </div>
@@ -542,7 +542,7 @@
                                         <div class="flex-col min-w-0 flex-auto items-center">
                                             <p class="text-base truncate font-bold text-grey">Hookload</p>
                                             <p class="mt-1 truncate font-bold text-base text-gray-300">
-                                                <span id="" class="text-grey" >N/A</span> /
+                                                <span id="" class="text-grey">N/A</span> /
                                                 <span>-</span>
                                             </p>
                                         </div>
@@ -557,7 +557,7 @@
                                         <div class="flex-col min-w-0 flex-auto items-center">
                                             <p class="text-base truncate font-bold text-grey">RPM</p>
                                             <p class="mt-1 truncate font-bold text-base text-gray-300">
-                                                <span id="RPM_sensor" class="text-grey" >N/A</span> /
+                                                <span id="RPM_sensor" class="text-grey">N/A</span> /
                                                 <span>-</span>
                                             </p>
                                         </div>
@@ -626,7 +626,7 @@
                                         <div class="flex-col min-w-0 flex-auto items-center">
                                             <p class="text-base truncate font-bold text-grey">SPP</p>
                                             <p class="mt-1 truncate font-bold text-base text-gray-300">
-                                                <span id="spm_surpress_sensor" class="text-grey" >N/A</span> /
+                                                <span id="spm_surpress_sensor" class="text-grey">N/A</span> /
                                                 <span>-</span>
                                             </p>
                                         </div>
@@ -641,7 +641,7 @@
                                         <div class="flex-col min-w-0 flex-auto items-center">
                                             <p class="text-base truncate font-bold text-grey">Flow In</p>
                                             <p class="mt-1 truncate font-bold text-base text-gray-300">
-                                                <span id="spm_mud_flow_in_sensor" class="text-grey" >N/A</span> /
+                                                <span id="spm_mud_flow_in_sensor" class="text-grey">N/A</span> /
                                                 <span>-</span>
                                             </p>
                                         </div>
@@ -709,7 +709,7 @@
                                         <div class="flex-col min-w-0 flex-auto items-center">
                                             <p class="text-base truncate font-bold text-grey">MWD Temp</p>
                                             <p class="mt-1 truncate font-bold text-base text-gray-300">
-                                                <span id="" class="text-grey" >N/A</span> /
+                                                <span id="" class="text-grey">N/A</span> /
                                                 <span>-</span>
                                             </p>
                                         </div>
@@ -724,7 +724,7 @@
                                         <div class="flex-col min-w-0 flex-auto items-center">
                                             <p class="text-base truncate font-bold text-grey">WH Temp</p>
                                             <p class="mt-1 truncate font-bold text-base text-gray-300">
-                                                <span id="" class="text-grey" >N/A</span> /
+                                                <span id="" class="text-grey">N/A</span> /
                                                 <span>-</span>
                                             </p>
                                         </div>
@@ -739,7 +739,7 @@
                                         <div class="flex-col min-w-0 flex-auto items-center">
                                             <p class="text-base truncate font-bold text-grey">Blooie Temp</p>
                                             <p class="mt-1 truncate font-bold text-base text-gray-300">
-                                                <span id="" class="text-grey" >N/A</span> /
+                                                <span id="" class="text-grey">N/A</span> /
                                                 <span>-</span>
                                             </p>
                                         </div>
@@ -808,7 +808,7 @@
                                         <div class="flex-col min-w-0 flex-auto items-center">
                                             <p class="text-base truncate font-bold text-grey">C02 Shaker</p>
                                             <p class="mt-1 truncate font-bold text-base text-gray-300">
-                                                <span id="" class="text-grey" >N/A</span> /
+                                                <span id="" class="text-grey">N/A</span> /
                                                 <span>-</span>
                                             </p>
                                         </div>

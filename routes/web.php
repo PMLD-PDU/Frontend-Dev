@@ -34,6 +34,5 @@ Route::get('/sensor-by-company', [UserController::class, 'sensorByCompany']);
 Route::get('/api/notification', [UserController::class, 'notification']);
 Route::patch('/api/well/{wellId}/notification/{id}/seen', [UserController::class, 'markAsSeen']);
 
-
 //logout
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
