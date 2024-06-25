@@ -13,29 +13,63 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Update DOM elements with new data
                 document.getElementById('bit_depth').innerText = latestData['bitdepth'] || "N/A";
-                document.getElementById('bit_depth_sidebar').innerText = latestData['bitdepth'] || "N/A";
-                document.getElementById('drill_depth_sidebar').innerText = latestData['bitdepth'] || "N/A";
-                document.getElementById('hkldp').innerText = latestData['hkldp'] || "N/A";
-                document.getElementById('tank_vol_total').innerText = latestData['tankvoltot'] || "N/A";
+                document.getElementById('bit_depth_main').innerText = latestData['bitdepth'] || "N/A";
+                // document.getElementById('drill_depth_sidebar').innerText = latestData['bitdepth'] || "N/A";
+
                 document.getElementById('tank_scfm').innerText = latestData['scfm']  || "N/A";
+                document.getElementById('tank_scfm_main').innerText = latestData['scfm']  || "N/A";
+
                 document.getElementById('tank_mud_cond_in').innerText = latestData['mudcondin'] || "N/A";
                 document.getElementById('tank_mud_cond_out').innerText = latestData['mudcondout'] || "N/A";
-                document.getElementById('spm_total').innerText = latestData['totspm'] || "N/A";
-                document.getElementById('spm_surpress').innerText = latestData['sppress'] || "N/A";
-                document.getElementById('spm_mud_flow_in').innerText = latestData['mudflowin'] || "N/A";
-                document.getElementById('spm_4').innerText = latestData['co2_1'] || "N/A";
-                document.getElementById('TORQVal').innerText = latestData['torque'] || "N/A";
                 document.getElementById('BlockVal').innerText = latestData['blockpos'] || "N/A";
-                document.getElementById('ROPiVal').innerText = latestData['ropin'] || "N/A";
-                document.getElementById('FlowOutVal').innerText = latestData['mudflowoutp'] || "N/A";
-                document.getElementById('BacksideVal').innerText = latestData['gas'] || "N/A";
+
+                document.getElementById('WOB').innerText = latestData['wob'] || "N/A";
+                document.getElementById('WOB_sensor').innerText = latestData['wob'] || "N/A";
+               
+                document.getElementById('ROPiVal_sensor').innerText = latestData['ropin'] || "N/A";
+               
                 document.getElementById('PitVolumeVal').innerText = latestData['bvdepth'] || "N/A";
-                document.getElementById('MWOutVal').innerText = latestData['mudcondout'] || "N/A";
-                document.getElementById('TempOutVal').innerText = latestData['mudtempout'] || "N/A";
-                document.getElementById('TempInVal').innerText = latestData['mudtempin'] || "N/A";
+                
+                document.getElementById('TORQVal').innerText = latestData['torque'] || "N/A";
+                document.getElementById('TORQVal_main').innerText = latestData['torque'] || "N/A";
+                
+                document.getElementById('RPM').innerText = latestData['rpm'] || "N/A";
+                document.getElementById('RPM_main').innerText = latestData['rpm'] || "N/A";
+                document.getElementById('RPM_sensor').innerText = latestData['rpm'] || "N/A";
+
+                document.getElementById('hkldp').innerText = latestData['hkldp'] || "N/A";
+
+                document.getElementById('LogDepth').innerText = latestData['logdepth'] || "N/A";
+                document.getElementById('LogDepth_main').innerText = latestData['logdepth'] || "N/A";
+
                 document.getElementById('H2SShakerVal').innerText = latestData['h2s_1'] || "N/A";
+                
+                document.getElementById('FlowOutVal').innerText = latestData['mudflowoutp'] || "N/A";
+                document.getElementById('FlowOutVal_sensor').innerText = latestData['mudflowoutp'] || "N/A";
+
+                document.getElementById('spm_total').innerText = latestData['totspm'] || "N/A";
+
+                document.getElementById('spm_surpress').innerText = latestData['sppress'] || "N/A";
+                document.getElementById('spm_surpress_main').innerText = latestData['sppress'] || "N/A";
+                document.getElementById('spm_surpress_sensor').innerText = latestData['sppress'] || "N/A";
+
+                document.getElementById('spm_mud_flow_in').innerText = latestData['mudflowin'] || "N/A";
+                document.getElementById('spm_mud_flow_in_sensor').innerText = latestData['mudflowin'] || "N/A";
+
                 document.getElementById('H2SCellarVal').innerText = latestData['co2_1'] || "N/A";
+
+                document.getElementById('BacksideVal').innerText = latestData['gas'] || "N/A";
                 document.getElementById('H2SMudPondVal').innerText = latestData['gas'] || "N/A";
+
+                document.getElementById('TempInVal').innerText = latestData['mudtempin'] || "N/A";
+                document.getElementById('TempInVal_sensor').innerText = latestData['mudtempin'] || "N/A";
+
+                document.getElementById('MWOutVal').innerText = latestData['mudcondout'] || "N/A";
+                
+                document.getElementById('TempOutVal').innerText = latestData['mudtempout'] || "N/A";
+                document.getElementById('TempOutVal_sensor').innerText = latestData['mudtempout'] || "N/A";
+                
+                document.getElementById('tank_vol_total').innerText = latestData['tankvoltot'] || "N/A";
 
                 document.getElementById('wellName').innerText = ((latestData['well'])['name'])|| "N/A"
                 

@@ -1,6 +1,6 @@
- // Sample data for demonstration
 const labels = [];
 const value_1 = [];
+const value_2 = [];
 const value_3 = [];
 const value_4 = [];
 const value_5 = [];
@@ -19,17 +19,19 @@ document.addEventListener('latestDataUpdated', function(event) {
     
     if (value_1.length == 10) {
         value_1.splice(0, 1);
+        value_2.splice(0, 1);
         value_3.splice(0, 1);
         value_4.splice(0, 1);
         value_5.splice(0, 1);
         value_6.splice(0, 1);
         labels.splice(0, 1);
 
-        value_1.push(value['torque']);
-        value_3.push(value['hkldp']);
-        value_4.push(value['logdepth']);
-        value_5.push(value['bvdepth']);
-        value_6.push(value['ropin']);
+        value_1.push(value['mudcondout']);
+        value_2.push(value['mudtempout']);
+        value_3.push(value['mudtempin']);
+        value_4.push(value['']);
+        value_5.push(value['']);
+        value_6.push(value['']);
 
         let waktu = jam + ':' + menit + ':' + detik;
         labels.push(waktu);
@@ -40,12 +42,13 @@ document.addEventListener('latestDataUpdated', function(event) {
 
             let count = datas[datas.length - i];
 
-            value_1.unshift(count['torque']);
-            value_3.unshift(count['hkldp']);
-            value_4.unshift(count['logdepth']);
-            value_5.unshift(count['bvdepth']);
-            value_6.unshift(count['ropin']);
-        
+            value_1.unshift(count['mudcondout']);
+            value_2.unshift(count['mudtempout']);
+            value_3.unshift(count['mudtempin']);
+            value_4.unshift(count['']);
+            value_5.unshift(count['']);
+            value_6.unshift(count['']);
+
         
             // detik
             if (detik - 10 < 0) {
@@ -68,10 +71,13 @@ document.addEventListener('latestDataUpdated', function(event) {
                 menit = 60;
                 jam--;
             } 
-
-            if (menit < 10) {
-                menit = '0' + menit.toString();
+            
+            if (menit < 10 && menit > 0) {
+                if (menit.toString().length < 2) {
+                    menit = '0' + menit.toString();
+                }
             }
+            
             
             let waktu = jam + ':' + menit + ':' + detik;
             labels.unshift(waktu);
@@ -86,39 +92,46 @@ const data = {
    labels: labels,
    datasets: [
        {
-           label: 'torque',
+           label: 'MW Out',
            data: value_1,
            borderColor: 'rgb(75, 192, 192)',
            backgroundColor: 'rgba(75, 192, 192, 0.2)',
            borderWidth: 1
        },
        {
-           label: 'hkldp',
+           label: 'Temp Out',
+           data: value_2,
+           borderColor: 'rgb(255, 99, 132)',
+           backgroundColor: 'rgba(255, 99, 132, 0.2)',
+           borderWidth: 1
+       },
+       {
+           label: 'Temp In',
            data: value_3,
            borderColor: 'rgb(54, 162, 235)',
            backgroundColor: 'rgba(54, 162, 235, 0.2)',
            borderWidth: 1
        },
        {
-           label: 'logdepth',
+           label: 'MWD Temp',
            data: value_4,
            borderColor: 'rgb(195, 58, 200)',
            backgroundColor: 'rgba(195, 58, 200, 0.2)',
            borderWidth: 1
        },
        {
-            label: 'bvdepth',
-            data: value_5,
-            backgroundColor: 'rgba(153, 102, 255, 0.2)',
-            borderColor: 'rgb(153, 102, 255)',
-            borderWidth: 1
+          label: 'WH Temp',
+          data: value_5,
+          backgroundColor: 'rgba(255, 140, 0, 0.2)',
+          borderColor: 'rgb(255, 140, 0)',
+          borderWidth: 1
         },
         {
-            label: 'ropin',
-            data: value_6,
-            backgroundColor: 'rgba(255, 140, 0, 0.2)',
-            borderColor: 'rgb(255, 140, 0)',
-            borderWidth: 1
+          label: 'Blooie Temp',
+          data: value_6,
+          backgroundColor: 'rgba(0, 255, 255, 0.2)',
+          borderColor: 'rgb(0, 255, 255)',
+          borderWidth: 1
         }
    ]
 };
@@ -133,7 +146,7 @@ const options = {
         },
         title: {
             display: true,
-            text: 'Chart.js Line Chart'
+            text: 'Graph 3'
         }
     },
     maintainAspectRatio: false,

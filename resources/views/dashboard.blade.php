@@ -46,6 +46,7 @@
     @vite('resources/js/chart/chart2_settings.js')
     @vite('resources/js/chart/chart3_settings.js')
     @vite('resources/js/chart/chart4_settings.js')
+    @vite('resources/js/chart/chart1_new.js')
 
     {{-- <title>Dashboard | {{ $rigName }} - {{ $companyName }}</title> --}}
 </head>
@@ -123,7 +124,7 @@
                 <div class="flex flex-row">
                     <div class="flex flex-row py-2 align-middle font-bold text-base">
                         <p class="text-black ms-4">Bit depth</p>
-                        <p class="text-pdu-orange ms-1" id="bit_depth_sidebar">N/A</p>
+                        <p class="text-pdu-orange ms-1" id="bit_depth">N/A</p>
                         <p class="text-pdu-orange ms-1">m</p>
                     </div>
                 </div>
@@ -131,7 +132,7 @@
                 <div class="flex flex-col">
                     <div class="flex flex-row py-2 align-middle font-bold text-base">
                         <p class="text-black ms-4">Drill Depth</p>
-                        <p class="text-pdu-orange ms-1" id="drill_depth_sidebar">N/A</p>
+                        <p class="text-pdu-orange ms-1" id="">N/A</p>
                         <p class="text-pdu-orange ms-1">m</p>
                     </div>
                 </div>
@@ -156,7 +157,7 @@
                 <div class="flex flex-col">
                     <div class="flex flex-row py-2 align-middle font-bold text-base">
                         <p class="text-black ms-4">WOB</p>
-                        <p class="text-pdu-orange ms-1" id="">N/A</p>
+                        <p class="text-pdu-orange ms-1" id="WOB">N/A</p>
                         <p class="text-pdu-orange ms-1">klb</p>
                     </div>
                 </div>
@@ -180,7 +181,7 @@
                 <div class="flex flex-col">
                     <div class="flex flex-row py-2 align-middle font-bold text-base">
                         <p class="text-black ms-4">TORQ</p>
-                        <p class="text-pdu-orange ms-1" id="">N/A</p>
+                        <p class="text-pdu-orange ms-1" id="TORQVal">N/A</p>
                         <p class="text-pdu-orange ms-1">klb.ft</p>
                     </div>
                 </div>
@@ -188,7 +189,7 @@
                 <div class="flex flex-col">
                     <div class="flex flex-row py-2 align-middle font-bold text-base">
                         <p class="text-black ms-4">RPM</p>
-                        <p class="text-pdu-orange ms-1" id="">N/A</p>
+                        <p class="text-pdu-orange ms-1" id="RPM">N/A</p>
                         <p class="text-pdu-orange ms-1">RPM</p>
                     </div>
                 </div>
@@ -212,7 +213,7 @@
                 <div class="flex flex-col">
                     <div class="flex flex-row py-2 align-middle font-bold text-base">
                         <p class="text-black ms-4">MFO</p>
-                        <p class="text-pdu-orange ms-1" id="">N/A</p>
+                        <p class="text-pdu-orange ms-1" id="FlowOutVal">N/A</p>
                         <p class="text-pdu-orange ms-1">%</p>
                     </div>
                 </div>
@@ -220,7 +221,7 @@
                 <div class="flex flex-col">
                     <div class="flex flex-row py-2 align-middle font-bold text-base">
                         <p class="text-black ms-4">MT In</p>
-                        <p class="text-pdu-orange ms-1" id="">N/A</p>
+                        <p class="text-pdu-orange ms-1" id="TempInVal">N/A</p>
                         <p class="text-pdu-orange ms-1">°C</p>
                     </div>
                 </div>
@@ -228,7 +229,7 @@
                 <div class="flex flex-col">
                     <div class="flex flex-row py-2 align-middle font-bold text-base">
                         <p class="text-black ms-4">MT Out</p>
-                        <p class="text-pdu-orange ms-1" id="">N/A</p>
+                        <p class="text-pdu-orange ms-1" id="TempOutVal">N/A</p>
                         <p class="text-pdu-orange ms-1">°C</p>
                     </div>
                 </div>
@@ -244,7 +245,7 @@
                 <div class="flex flex-col">
                     <div class="flex flex-row py-2 align-middle font-bold text-base">
                         <p class="text-black ms-4">SPP</p>
-                        <p class="text-pdu-orange ms-1" id="">N/A</p>
+                        <p class="text-pdu-orange ms-1" id="spm_surpress">N/A</p>
                         <p class="text-pdu-orange ms-1">psi</p>
                     </div>
                 </div>
@@ -276,7 +277,7 @@
                 <div class="flex flex-col">
                     <div class="flex flex-row py-2 align-middle font-bold text-base">
                         <p class="text-black ms-4">MFI</p>
-                        <p class="text-pdu-orange ms-1" id="">N/A</p>
+                        <p class="text-pdu-orange ms-1" id="spm_mud_flow_in">N/A</p>
                         <p class="text-pdu-orange ms-1">gpm</p>
                     </div>
                 </div>
@@ -316,15 +317,15 @@
                 <div class="flex flex-col">
                     <div class="flex flex-row py-2 align-middle font-bold text-base">
                         <p class="text-black ms-4">SCFM</p>
-                        <p class="text-pdu-orange ms-1" id="">N/A</p>
+                        <p class="text-pdu-orange ms-1" id="tank_scfm">N/A</p>
                         <p class="text-pdu-orange ms-1">-</p>
                     </div>
                 </div>
 
                 <div class="flex flex-col">
                     <div class="flex flex-row py-2 align-middle font-bold text-base">
-                        <p class="text-black ms-4">Lag Depth</p>
-                        <p class="text-pdu-orange ms-1" id="">N/A</p>
+                        <p class="text-black ms-4">Log Depth</p>
+                        <p class="text-pdu-orange ms-1" id="LogDepth">N/A</p>
                         <p class="text-pdu-orange ms-1">m</p>
                     </div>
                 </div>
@@ -347,7 +348,7 @@
                         <div class="flex flex-col py-2 text-2xl justify-center">
                             <p class="font-medium">Bit Depth</p>
                             <div class="flex flex-row space-x-1">
-                                <p class="text-pdu-orange font-bold" id="bit_depth"></p>
+                                <p class="text-pdu-orange font-bold" id="bit_depth_main"></p>
                                 <p class="text-pdu-orange font-bold">m</p>
                             </div>
                         </div>
@@ -374,7 +375,7 @@
                             <div class="flex flex-col py-2 align-middle font-bold text-base">
                                 <p>SCFM</p>
                                 <div class="flex flex-row space-x-1">
-                                    <p class="text-pdu-orange" id="tank_scfm">N/A</p>
+                                    <p class="text-pdu-orange" id="tank_scfm_main">N/A</p>
                                     <p class="text-pdu-orange">bbl</p>
                                 </div>
                             </div>
@@ -420,23 +421,23 @@
                             <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
                             <div class="flex flex-col py-2 align-middle font-bold text-base">
                                 <p>Surpress</p>
-                                <p class="text-pdu-orange" id="spm_surpress">N/A</p>
+                                <p class="text-pdu-orange" id="spm_surpress_main">N/A</p>
                             </div>
                         </div>
 
                         <div class="flex flex-row">
                             <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
                             <div class="flex flex-col py-2 align-middle font-bold text-base">
-                                <p>Mud Flow In</p>
-                                <p class="text-pdu-orange" id="spm_mud_flow_in">N/A</p>
+                                <p>RPM</p>
+                                <p class="text-pdu-orange" id="RPM_main">N/A</p>
                             </div>
                         </div>
 
                         <div class="flex flex-row">
                             <i class="fa-solid fa-circle fa-2xs p-4 text-pdu-orange content-center"></i>
                             <div class="flex flex-col py-2 align-middle font-bold text-base">
-                                <p>CO2</p>
-                                <p class="text-pdu-orange" id="spm_4">N/A</p>
+                                <p>Log Depth</p>
+                                <p class="text-pdu-orange" id="LogDepth_main">N/A</p>
                             </div>
                         </div>
                     </div>
@@ -465,7 +466,7 @@
                                         <div class="flex-col min-w-0 flex-auto items-center">
                                             <p class="text-base truncate font-bold" style="color: #4700DE;">TORQ</p>
                                             <p class="mt-1 truncate font-bold text-base text-gray-300">
-                                                <span id="TORQVal" style="color: #4700DE;">N/A</span> /
+                                                <span id="TORQVal_main" style="color: #4700DE;">N/A</span> /
                                                 <span>30</span>
                                             </p>
                                         </div>
@@ -496,8 +497,68 @@
                                         <div class="flex-col min-w-0 flex-auto items-center">
                                             <p class="text-base truncate font-bold" style="color: #C9A857;">ROPi</p>
                                             <p class="mt-1 truncate font-bold text-base text-gray-300">
-                                                <span id="ROPiVal" style="color: #C9A857;">N/A</span> /
+                                                <span id="ROPiVal_sensor" style="color: #C9A857;">N/A</span> /
                                                 <span>100</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="grid grid-cols-[auto,1fr] pb-2 items-center">
+                                    <div class="flex min-w-0 inline-block items-center">
+                                        <svg class="h-4 w-8 flex-initial inline-block">
+                                            <circle class="items-center" cx="6" cy="6" r="5"
+                                                fill="#999" />
+                                        </svg>
+                                        <div class="flex-col min-w-0 flex-auto items-center">
+                                            <p class="text-base truncate font-bold text-grey">ROP</p>
+                                            <p class="mt-1 truncate font-bold text-base text-gray-300">
+                                                <span id="" class="text-grey" >N/A</span> /
+                                                <span>-</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="grid grid-cols-[auto,1fr] pb-2 items-center">
+                                    <div class="flex min-w-0 inline-block items-center">
+                                        <svg class="h-4 w-8 flex-initial inline-block">
+                                            <circle class="items-center" cx="6" cy="6" r="5"
+                                                fill="#999" />
+                                        </svg>
+                                        <div class="flex-col min-w-0 flex-auto items-center">
+                                            <p class="text-base truncate font-bold text-grey">WOB</p>
+                                            <p class="mt-1 truncate font-bold text-base text-gray-300">
+                                                <span id="WOB_sensor" class="text-grey" >N/A</span> /
+                                                <span>-</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="grid grid-cols-[auto,1fr] pb-2 items-center">
+                                    <div class="flex min-w-0 inline-block items-center">
+                                        <svg class="h-4 w-8 flex-initial inline-block">
+                                            <circle class="items-center" cx="6" cy="6" r="5"
+                                                fill="#999" />
+                                        </svg>
+                                        <div class="flex-col min-w-0 flex-auto items-center">
+                                            <p class="text-base truncate font-bold text-grey">Hookload</p>
+                                            <p class="mt-1 truncate font-bold text-base text-gray-300">
+                                                <span id="" class="text-grey" >N/A</span> /
+                                                <span>-</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="grid grid-cols-[auto,1fr] pb-2 items-center">
+                                    <div class="flex min-w-0 inline-block items-center">
+                                        <svg class="h-4 w-8 flex-initial inline-block">
+                                            <circle class="items-center" cx="6" cy="6" r="5"
+                                                fill="#999" />
+                                        </svg>
+                                        <div class="flex-col min-w-0 flex-auto items-center">
+                                            <p class="text-base truncate font-bold text-grey">RPM</p>
+                                            <p class="mt-1 truncate font-bold text-base text-gray-300">
+                                                <span id="RPM_sensor" class="text-grey" >N/A</span> /
+                                                <span>-</span>
                                             </p>
                                         </div>
                                     </div>
@@ -518,7 +579,7 @@
                                             <p class="text-base truncate font-bold" style="color: #727CAB;">Flow Out
                                             </p>
                                             <p class="mt-1 truncate font-bold text-base text-gray-300">
-                                                <span id="FlowOutVal" style="color: #727CAB;">N/A</span> /
+                                                <span id="FlowOutVal_sensor" style="color: #727CAB;">N/A</span> /
                                                 <span>100</span>
                                             </p>
                                         </div>
@@ -556,6 +617,36 @@
                                         </div>
                                     </div>
                                 </li>
+                                <li class="grid grid-cols-[auto,1fr] pb-2 items-center">
+                                    <div class="flex min-w-0 inline-block items-center">
+                                        <svg class="h-4 w-8 flex-initial inline-block">
+                                            <circle class="items-center" cx="6" cy="6" r="5"
+                                                fill="#999" />
+                                        </svg>
+                                        <div class="flex-col min-w-0 flex-auto items-center">
+                                            <p class="text-base truncate font-bold text-grey">SPP</p>
+                                            <p class="mt-1 truncate font-bold text-base text-gray-300">
+                                                <span id="spm_surpress_sensor" class="text-grey" >N/A</span> /
+                                                <span>-</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="grid grid-cols-[auto,1fr] pb-2 items-center">
+                                    <div class="flex min-w-0 inline-block items-center">
+                                        <svg class="h-4 w-8 flex-initial inline-block">
+                                            <circle class="items-center" cx="6" cy="6" r="5"
+                                                fill="#999" />
+                                        </svg>
+                                        <div class="flex-col min-w-0 flex-auto items-center">
+                                            <p class="text-base truncate font-bold text-grey">Flow In</p>
+                                            <p class="mt-1 truncate font-bold text-base text-gray-300">
+                                                <span id="spm_mud_flow_in_sensor" class="text-grey" >N/A</span> /
+                                                <span>-</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
 
@@ -587,7 +678,7 @@
                                             <p class="text-base truncate font-bold" style="color: #4188DC;">Temp Out
                                             </p>
                                             <p class="mt-1 truncate font-bold text-base text-gray-300">
-                                                <span id="TempOutVal" style="color: #4188DC;">N/A</span> /
+                                                <span id="TempOutVal_sensor" style="color: #4188DC;">N/A</span> /
                                                 <span>100</span>
                                             </p>
                                         </div>
@@ -603,8 +694,53 @@
                                             <p class="text-base truncate font-bold" style="color: #9D631E;">Temp In
                                             </p>
                                             <p class="mt-1 truncate font-bold text-base text-gray-300">
-                                                <span id="TempInVal" style="color: #9D631E;">N/A</span> /
+                                                <span id="TempInVal_sensor" style="color: #9D631E;">N/A</span> /
                                                 <span>100</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="grid grid-cols-[auto,1fr] pb-2 items-center">
+                                    <div class="flex min-w-0 inline-block items-center">
+                                        <svg class="h-4 w-8 flex-initial inline-block">
+                                            <circle class="items-center" cx="6" cy="6" r="5"
+                                                fill="#999" />
+                                        </svg>
+                                        <div class="flex-col min-w-0 flex-auto items-center">
+                                            <p class="text-base truncate font-bold text-grey">MWD Temp</p>
+                                            <p class="mt-1 truncate font-bold text-base text-gray-300">
+                                                <span id="" class="text-grey" >N/A</span> /
+                                                <span>-</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="grid grid-cols-[auto,1fr] pb-2 items-center">
+                                    <div class="flex min-w-0 inline-block items-center">
+                                        <svg class="h-4 w-8 flex-initial inline-block">
+                                            <circle class="items-center" cx="6" cy="6" r="5"
+                                                fill="#999" />
+                                        </svg>
+                                        <div class="flex-col min-w-0 flex-auto items-center">
+                                            <p class="text-base truncate font-bold text-grey">WH Temp</p>
+                                            <p class="mt-1 truncate font-bold text-base text-gray-300">
+                                                <span id="" class="text-grey" >N/A</span> /
+                                                <span>-</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="grid grid-cols-[auto,1fr] pb-2 items-center">
+                                    <div class="flex min-w-0 inline-block items-center">
+                                        <svg class="h-4 w-8 flex-initial inline-block">
+                                            <circle class="items-center" cx="6" cy="6" r="5"
+                                                fill="#999" />
+                                        </svg>
+                                        <div class="flex-col min-w-0 flex-auto items-center">
+                                            <p class="text-base truncate font-bold text-grey">Blooie Temp</p>
+                                            <p class="mt-1 truncate font-bold text-base text-gray-300">
+                                                <span id="" class="text-grey" >N/A</span> /
+                                                <span>-</span>
                                             </p>
                                         </div>
                                     </div>
@@ -659,6 +795,21 @@
                                             <p class="mt-1 truncate font-bold text-base text-gray-300">
                                                 <span id="H2SMudPondVal" style="color: #4AC599;">N/A</span> /
                                                 <span>200</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="grid grid-cols-[auto,1fr] pb-2 items-center">
+                                    <div class="flex min-w-0 inline-block items-center">
+                                        <svg class="h-4 w-8 flex-initial inline-block">
+                                            <circle class="items-center" cx="6" cy="6" r="5"
+                                                fill="#999" />
+                                        </svg>
+                                        <div class="flex-col min-w-0 flex-auto items-center">
+                                            <p class="text-base truncate font-bold text-grey">C02 Shaker</p>
+                                            <p class="mt-1 truncate font-bold text-base text-gray-300">
+                                                <span id="" class="text-grey" >N/A</span> /
+                                                <span>-</span>
                                             </p>
                                         </div>
                                     </div>

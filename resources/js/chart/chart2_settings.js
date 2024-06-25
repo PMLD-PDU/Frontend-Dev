@@ -1,4 +1,3 @@
- // Sample data for demonstration
 const labels = [];
 const value_1 = [];
 const value_2 = [];
@@ -25,11 +24,11 @@ document.addEventListener('latestDataUpdated', function(event) {
         value_5.splice(0, 1);
         labels.splice(0, 1);
 
-        value_1.push(value['blockpos']);
-        value_2.push(value['wob']);
-        value_3.push(value['ropin']);
-        value_4.push(value['mudtempin']);
-        value_5.push(value['mudtempout']);
+        value_1.push(value['mudflowoutp']);
+        value_2.push(value['']);
+        value_3.push(value['bvdepth']);
+        value_4.push(value['sppress']);
+        value_5.push(value['mudflowin']);
 
         let waktu = jam + ':' + menit + ':' + detik;
         labels.push(waktu);
@@ -40,11 +39,11 @@ document.addEventListener('latestDataUpdated', function(event) {
 
             let count = datas[datas.length - i];
 
-            value_1.unshift(count['blockpos']);
-            value_2.unshift(count['wob']);
-            value_3.unshift(count['ropin']);
-            value_4.unshift(count['mudtempin']);
-            value_5.unshift(count['mudtempout']);
+            value_1.unshift(count['mudflowoutp']);
+            value_2.unshift(count['']);
+            value_3.unshift(count['bvdepth']);
+            value_4.unshift(count['sppress']);
+            value_5.unshift(count['mudflowin']);
         
             // detik
             if (detik - 10 < 0) {
@@ -67,10 +66,13 @@ document.addEventListener('latestDataUpdated', function(event) {
                 menit = 60;
                 jam--;
             } 
-
-            if (menit < 10) {
-                menit = '0' + menit.toString();
+            
+            if (menit < 10 && menit > 0) {
+                if (menit.toString().length < 2) {
+                    menit = '0' + menit.toString();
+                }
             }
+            
             
             let waktu = jam + ':' + menit + ':' + detik;
             labels.unshift(waktu);
@@ -85,38 +87,38 @@ const data = {
    labels: labels,
    datasets: [
        {
-           label: 'blockpos',
+           label: 'Flow Out',
            data: value_1,
            borderColor: 'rgb(75, 192, 192)',
            backgroundColor: 'rgba(75, 192, 192, 0.2)',
            borderWidth: 1
        },
        {
-           label: 'wob',
+           label: 'Backside Flow',
            data: value_2,
            borderColor: 'rgb(255, 99, 132)',
            backgroundColor: 'rgba(255, 99, 132, 0.2)',
            borderWidth: 1
        },
        {
-           label: 'ropin',
+           label: 'Pit Volume Act',
            data: value_3,
            borderColor: 'rgb(54, 162, 235)',
            backgroundColor: 'rgba(54, 162, 235, 0.2)',
            borderWidth: 1
        },
        {
-          label: 'mudtempin',
-          data: value_4,
-          backgroundColor: 'rgba(255, 159, 64, 0.2)',
-          borderColor: 'rgb(255, 159, 64)',
-          borderWidth: 1
+           label: 'SPP',
+           data: value_4,
+           borderColor: 'rgb(195, 58, 200)',
+           backgroundColor: 'rgba(195, 58, 200, 0.2)',
+           borderWidth: 1
        },
        {
-          label: 'mudtempout',
+          label: 'Flow In',
           data: value_5,
-          backgroundColor: 'rgba(255, 205, 86, 0.2)',
-          borderColor: 'rgb(255, 205, 86)',
+          backgroundColor: 'rgba(255, 140, 0, 0.2)',
+          borderColor: 'rgb(255, 140, 0)',
           borderWidth: 1
         }
    ]
@@ -132,7 +134,7 @@ const options = {
         },
         title: {
             display: true,
-            text: 'Chart.js Line Chart'
+            text: 'Graph 2'
         }
     },
     maintainAspectRatio: false,
