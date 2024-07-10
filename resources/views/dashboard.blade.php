@@ -46,7 +46,6 @@
     @vite('resources/js/chart/chart2_settings.js')
     @vite('resources/js/chart/chart3_settings.js')
     @vite('resources/js/chart/chart4_settings.js')
-    @vite('resources/js/chart/chart1_new.js')
 
     {{-- <title>Dashboard | {{ $rigName }} - {{ $companyName }}</title> --}}
 </head>
