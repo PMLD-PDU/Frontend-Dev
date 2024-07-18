@@ -1,0 +1,67 @@
+:root {
+    --notification-red-primary: #FF3A00;
+    --notification-red-secondary: #E75C33;
+    --notification-white-primary: #FBFBFB;
+    --notification-white-neutral: #FFFFFF;
+    --notification-black-primary: #1E1E1E;
+}
+
+/* normal notification */
+
+.notification-header-text {
+    color: var(--notification-red-secondary);
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.notification-icon {
+    color: var(--notification-red-secondary);
+    font-size: 2rem;
+}
+
+.notification-title {
+    color: var(--notification-red-secondary);
+    font-weight: 700;
+}
+
+.notification-date {
+    font-weight: 400;
+}
+
+.notification-data {
+    background-color: var(--notification-white-primary);
+    /* border-bottom: 1px solid var(--notification-black-primary); */
+}
+
+.notification-container {
+    background-color: var(--notification-white-neutral);
+    border-radius: 8px;
+}
+
+.notification-data-container {
+    border-radius: 8px;
+    height: 50dvh;
+    overflow-y: scroll;
+
+    /* hide scroll bar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.notification-data-container::-webkit-scrollbar {
+    /* hide scroll bar */
+    display: none;
+}
+
+/* alert notification */
+
+.notification-data.notification-alert {
+    background-color: var(--notification-red-primary);
+    border-radius: 8px;
+}
+
+.notification-data.notification-alert .notification-title,
+.notification-data.notification-alert .notification-date,
+.notification-data.notification-alert .notification-icon {
+    color: var(--notification-white-primary) !important;
+}

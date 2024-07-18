@@ -18,6 +18,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <style>
         .charts-container {
             display: flex;
@@ -37,11 +43,12 @@
     </style>
 
     @vite('resources/css/app.css')
+    @vite('resources/css/notification.css')
     @vite('resources/js/app.js')
     @vite('resources/js/sidebar.js')
     @vite('resources/js/dashboard.js')
     @vite('resources/js/logout.js')
-    @vite('resources/js/notification.js')
+    @vite('resources/js/notification-new.js')
     @vite('resources/js/chart/chart1_settings.js')
     @vite('resources/js/chart/chart2_settings.js')
     @vite('resources/js/chart/chart3_settings.js')
@@ -844,14 +851,12 @@
 
             {{-- REPORT SECTION --}}
             <div class="flex flex-col w-2/12 space-y-6">
-                <h2 class="text-pdu-orange text-2xl font-sans font-extrabold">Report</h2>
-                <div class="w-full bg-slate-300 rounded-xl shadow-md shadow-black/25 h-fit">
-                    <div class="flex flex-col w-full h-fit space-y-6">
-                        <div id="notification-container"
-                            class="flex flex-col w-full bg-white rounded-xl shadow-md shadow-black/25 divide-y">
-                        </div>
-                        {{-- dynamic notif --}}
+                <div class="notification-container d-flex flex-column">
+                    <div id="notification-header" class="mb-4">
+                        <p class="notification-header-text mb-0">Reports</p>
+                        {{-- <p class="notification-end mb-0"><i class="bi bi-receipt"></i> For more drilling report details, <a href="#">Click Here!</a> </p> --}}
                     </div>
+                    <div class="notification-data-container d-flex flex-column px-3 py-1"></div>
                 </div>
             </div>
         </div>
