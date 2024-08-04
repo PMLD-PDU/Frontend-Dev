@@ -1,18 +1,21 @@
 let base_url_api_model = 'http://103.176.79.218:5000';
+let well_id = document.getElementById('dashboard-container').getAttribute('data-well-id');
+console.log(well_id);
 
 $(document).ready(function(){
     // get 10 notification data and populate notification
-    get_notification_data(true);
+    get_notification_data(true, well_id);
 
     // get latest notification every 15 seconds
     setInterval(function() {
-        get_notification_data(false);
+        get_notification_data(false, well_id);
     }, 12000);
 });
 
-function get_notification_data(newly_started) {
+function get_notification_data(newly_started, well_id) {
     var today = new Date().toISOString().slice(0, 10)
     var query_data = {
+        "well_id": well_id,
         "date_start": today,
         "date_end": today,
         "limit": newly_started ? 10 : 1
@@ -40,7 +43,7 @@ function get_notification_data(newly_started) {
 }
 
 function update_notification_container(data, newly_started) {
-    console.log()
+    console.log(data)
     if (newly_started) {
         data.forEach(element => {
             // construct html code
