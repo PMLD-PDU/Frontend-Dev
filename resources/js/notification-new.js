@@ -47,7 +47,8 @@ function update_notification_container(data, newly_started) {
     if (newly_started) {
         data.forEach(element => {
             // construct html code
-            $(".notification-data-container").last().append(get_notification_container_html(element));
+            $(".notification-data-container").prepend(get_notification_container_html(element));
+
         });
     } else {
         // update notification container
